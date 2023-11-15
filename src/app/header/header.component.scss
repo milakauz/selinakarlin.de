@@ -1,0 +1,87 @@
+$menu-height: 1.3rem;
+// $menu-width: 2.5rem;
+$menu-gap: 0.2rem;
+$menu-line-height: 0.13rem;
+
+header {
+    z-index: 1;
+    height: 80px;
+    font-family: 'Syne';
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    background-color: rgba(240, 219, 199, 1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    // background-color: rgba(240,219,199, 0.6);
+    img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: $menu-gap;
+        height: $menu-height;
+        // width: $menu-width;
+        z-index: 3;
+        // gap: 0.2rem;
+        // height: 32px;
+        // width: 32px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        span {
+            height: $menu-line-height;
+            width: 20px;
+            background-color: #000000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+
+            &.top-bun.active {
+                transform: translateY($menu-line-height + $menu-gap) rotate(45deg);
+            }
+
+            &.patty.active {
+                opacity: 0;
+            }
+
+            &.bottom-bun.active {
+                transform: translateY(-$menu-line-height - $menu-gap) rotate(-45deg);
+                background-color: red;
+            }
+        }
+    }
+
+    .show-menu-links{
+        font-family: Syne !important;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 3.5rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+
+        a{
+            color: black;
+            font-size: 2.5em;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.78px;
+        }
+    }
+}
