@@ -7,7 +7,7 @@ header {
     z-index: 1;
     height: 80px;
     font-family: 'Syne';
-    position: fixed;
+    // position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -15,11 +15,19 @@ header {
     background-color: rgba(240, 219, 199, 1);
 }
 
+
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    a {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
     // background-color: rgba(240,219,199, 0.6);
     img {
@@ -64,24 +72,25 @@ nav {
         }
     }
 
-    .show-menu-links{
-        font-family: Syne !important;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 3.5rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100vh;
+}
 
-        a{
-            color: black;
-            font-size: 2.5em;
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.78px;
-        }
+.show-menu-links {
+    font-family: Syne !important;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+    // position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+
+    a {
+        color: black;
+        font-size: 2.5em;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.78px;
     }
 }
