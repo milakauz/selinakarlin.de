@@ -1,1 +1,9 @@
-<p>skills works!</p>
+<div class="skills-container m-0-25">
+    <h1 id="skillsSection">My skills</h1>
+    <div class="skills-grid">
+        <div *ngFor="let skill of skillsList" class="d-flex align-center">
+            <img src="{{ skill.url }}">
+            <span>{{ skill.name }}</span>
+        </div>
+    </div>
+</div>
