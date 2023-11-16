@@ -1,8 +1,8 @@
 <header class="m-0-25">
-<nav >
-        <div class="logo-wrapper">
+    <nav>
+        <a class="logo-wrapper">
             <img class="logo" src="./../../favicon.ico" alt="Logo für Test">
-        </div>
+        </a>
 
         <div (click)="toggleMenu()" class="hamburger-menu">
             <span [class.active]="isActivated" class="line top-bun"></span>
@@ -10,16 +10,16 @@
             <span [class.active]="isActivated" class="line bottom-bun"></span>
         </div>
 
-        <div [class.d-flex]="isActivated" class="show-menu-links d-none p-0-25">
-            <div class="link-wrapper">
-                <a href="">About me</a>
-            </div>
-            <div class="link-wrapper">
-                <a href="">My skills</a>
-            </div>
-            <div class="link-wrapper">
-                <a href="">Portfolio</a>
-            </div>
-        </div>
     </nav>
 </header>
+<div id="linksContainer" [class.d-flex.no-scroll]="isActivated" class="show-menu-links d-none p-0-25">
+    <div class="link-wrapper">
+        <a (click)="scrollToSection('aboutMe')">About me</a>
+    </div>
+    <div class="link-wrapper">
+        <a (click)="scrollToSection('skillsSection')">My skills</a>
+    </div>
+    <div class="link-wrapper">
+        <a (click)="scrollToSection('portfolioSection')">Portfolio</a>
+    </div>
+</div>
