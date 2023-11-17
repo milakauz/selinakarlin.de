@@ -1,5 +1,4 @@
 .atf-content {
-    padding-top: 80px;
     height: 480px;
     position: relative;
     overflow-y: hidden !important;
@@ -20,11 +19,11 @@
 
     .headline-content {
         flex-direction: column;
-        // justify-content: start;
     }
 
     button {
         margin-top: 32px;
+        margin-bottom: 24px;
         height: 60px;
         font-size: 1.2em;
         font-family: Overpass;
@@ -46,30 +45,35 @@
         bottom: 80px;
     }
 
-    .arrow-scroll-animation {
-        height: 11rem;
-        border: 1px solid black;
-        width: 2rem;
-        animation: moveDown 4s ease;
-        background-image: url('./../../assets/img/arrows/3.png');
-        background-repeat: no-repeat;
-        background-position: -20px;
-        object-fit: cover;
-        background-size: auto;
-        @keyframes moveDown {
-
-        }
-
-    }
-
     .scroll-down {
         flex-direction: column;
         gap: 1rem;
+        width: 50px;
         position: absolute;
         right: 0;
         bottom: 0;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
+
+        img {
+            height: 150px;
+            width: 80px;
+
+            &.animate {
+                animation: topDown 3s ease;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        @keyframes topDown {
+            from {
+                transform: translateY(-200px);
+            }
+
+            to {
+                transform: translateY(150px);
+            }
+        }
     }
 
 
