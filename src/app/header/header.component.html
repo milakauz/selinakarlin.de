@@ -12,14 +12,14 @@
 
     </nav>
 </header>
-<div id="linksContainer" [class.d-flex.no-scroll]="isActivated" class="show-menu-links d-none p-0-25">
+<div id="linksContainer" [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''" class="show-menu-links d-none p-0-25">
     <div class="link-wrapper">
-        <a (click)="scrollToSection('aboutMe')">About me</a>
+        <a (click)="toggleMenu()" href="#aboutMe">About me</a>
     </div>
     <div class="link-wrapper">
-        <a (click)="scrollToSection('skillsSection')">My skills</a>
+        <a (click)="toggleMenu()" href="#skillsSection">My skills</a>
     </div>
     <div class="link-wrapper">
-        <a (click)="scrollToSection('portfolioSection')">Portfolio</a>
+        <a (click)="toggleMenu()" href="#portfolioSection">Portfolio</a>
     </div>
 </div>
