@@ -2,10 +2,6 @@
     position: relative;
 
 }
-.photo {
-    margin-top: 240px;
-    display: flex;
-}
 
 p {
     font-family: Overpass;
@@ -19,6 +15,8 @@ p {
     height: 300px;
     width: 280px;
     background-color: grey;
+    margin-top: 160px;
+    display: flex;
 
     span {
         color: white;
