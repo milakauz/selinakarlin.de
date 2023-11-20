@@ -1,0 +1,67 @@
+img {
+    width: 88%;
+    height: 100%;
+}
+
+p {
+    font-size: clamp(12px, 16px, 20px);
+}
+
+.project-button {
+    justify-content: space-between;
+}
+
+.show {
+    display: flex;
+}
+
+.portfolio-container {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+button {
+    padding: 8px 16px;
+    background: transparent;
+    border: 2px solid #000000;
+    font-size: 1em;
+    width: 42%;
+
+    &:hover {
+        animation: expand 0.5s forwards;
+        font-weight: bold;
+    }
+
+    @keyframes expand {
+        to {
+            width: 50%;
+        }
+    }
+}
+
+.project-image {
+    position: relative;
+    padding-bottom: 5%;
+    // display: inline-block; // div nimmt Größe des img an
+
+    // .frame {
+    //     position: absolute;
+    //     top: 8%;
+    //     left: 8%;
+    //     background-color: transparent;
+    //     bottom: -8%;
+    // }
+
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        right: 9%;
+        bottom: 4%;
+        border: 2px solid black;
+        box-sizing: border-box;
+        /* Stellt sicher, dass die Umrandung innerhalb der Größe des divs bleibt */
+    }
+}

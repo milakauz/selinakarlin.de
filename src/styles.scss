@@ -18,11 +18,48 @@ h1 {
     font-family: 'Syne';
 }
 
+h3 {
+    font-size: clamp(24px, 30px, 38px);
+    font-family: 'Syne';
+}
+
+h6 {
+    font-size: clamp(18px, 18px, 22px);
+    font-family: Overpass;
+    color: #00BC8F;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+
+}
+
+p {
+    font-family: Overpass;
+}
+
 a {
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
+
+button {
+    font-family: Overpass;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.grayscale {
+    filter: grayscale(1);
+}
+
+// .photo {
+//     height: 300px;
+//     width: 280px;
+//     background-color: grey;
+//     margin-top: 160px;
+//     display: flex;
+// }
 
 .m-0-25 {
     margin: 0 25px;

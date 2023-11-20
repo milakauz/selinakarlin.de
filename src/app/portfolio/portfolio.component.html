@@ -1,1 +1,21 @@
-<h1 id="portfolioSection">My projects</h1>
+<h1 class="m-0-25" id="portfolioSection">Portfolio</h1>
+<p class="m-0-25">This page is a sample of my work - please feel free to try them out.</p>
+<div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container m-0-25"
+    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}"> 
+    <!-- hier drüber kann ich noch rechts und links für das &::after einstellen -->
+    <div class="project-image">
+        <img class="grayscale" src="{{ project.url }}"
+            [ngClass]="{'in-focus': inFocus, 'grayscale': !inFocus}">
+        <!-- <img class="frame" src="../../assets/img/photo_frame.png"> -->
+        <!-- [ngClass]="{'in-focus': inFocus, 'show': !inFocus}" Vielleicht brauch ich das noch -->
+    </div>
+    <h3 [ngClass]="">{{ project.name }}</h3>
+    <h6> {{ project.teckStack }} </h6>
+    <p class="description">
+        {{ project.description }}
+    </p>
+    <div class="project-button d-flex">
+        <button>Github</button>
+        <button>Live Test</button>
+    </div>
+</div>
