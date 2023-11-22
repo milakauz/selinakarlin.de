@@ -9,13 +9,16 @@ $black: #000000;
     display: none;
 }
 
+body {
+    margin: 0 auto;
+}
+
 * {
     // font-family: 'Syne';
     overflow-x: hidden;
     background-color: $beige;
     scroll-behavior: smooth;
     font-family: Overpass;
-    margin: 0 auto;
 }
 
 h1 {
