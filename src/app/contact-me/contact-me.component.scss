@@ -6,7 +6,6 @@ $red: #BC002D;
 
 .contact {
     background-image: url("^assets/background_footer.png");
-    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0 25px;
@@ -20,7 +19,7 @@ h1 {
     margin-top: 80px;
     color: $beige;
     // background-color: $black;
-    max-width: fit-content;
+    // max-width: fit-content;
     animation: colorChange 4s infinite ease-in-out;
 
     @keyframes colorChange {

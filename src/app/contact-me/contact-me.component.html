@@ -29,15 +29,16 @@
                 Please enter a small message.
             </small>
             <div class="privacy-container d-flex">
-                <input id="privacyPolicy" type="checkbox" formControlName="privacyPolicy">
+                <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
                 <label for="privacyPolicy">I've read the <a href="" class="privacy">privacy policy</a> and agree to the processing of my data as outlined.</label>
             </div>
+            <!-- *ngIf="isFieldValid('privacyPolicy')" -->
             <small class="text-error" *ngIf="isFieldValid('privacyPolicy')">
                 Please accept the privacy policy.
             </small>
             <!-- </div> -->
             <div class="form-button d-flex justify-center">
-                <button class="cutom-background" type="submit" [disabled]="!contactForm.valid">Send message
+                <button onclick="checkPrivacyCheckbox()" class="cutom-background" type="submit" [disabled]="!contactForm.valid">Send message
                     :&#41;</button>
             </div>
             <span *ngIf="messageSucceed" style="margin-top: 16px;">Message sent! <br> Thanks :&#41;</span>

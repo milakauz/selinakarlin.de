@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, FormArray, Validators, FormBuilder } from "@angular/forms";
 @Component({
   selector: 'app-contact-me',
@@ -6,8 +6,10 @@ import { FormControl, FormGroup, FormArray, Validators, FormBuilder } from "@ang
   styleUrls: ['./contact-me.component.scss']
 })
 export class ContactMeComponent {
+  @ViewChild('privacyPolicy') privacyCheckbox!: ElementRef;
   contactForm!: FormGroup
   messageSucceed: boolean = false;
+  // privacyChecked: boolean = false;
   // constructor(private formBuilder: FormBuilder){}
   ngOnInit() {
     this.contactForm = new FormGroup({
@@ -23,7 +25,6 @@ export class ContactMeComponent {
     formData.append('name', this.contactForm.value.name as string);
     formData.append('email', this.contactForm.value.email as string);
     formData.append('message', this.contactForm.value.message as string);
-
     this.clearInput();
   }
 
@@ -38,8 +39,20 @@ export class ContactMeComponent {
     
   }
 
+  checkPrivacyCheckbox(){
+    
+  }
+
   isFieldValid(fieldName: string){
+    // if (fieldName === 'privacyPolicy') {
+    //   console.log(this.contactForm.get('privacyPolicy')?.status);
+    //   if (this.contactForm.get('privacyPolicy')?.status === 'VALID') {
+    //     console.log('valide!')
+    //     this.privacyChecked = true;
+    //   }
+    // }
     let input = this.contactForm.get(fieldName);
-    return input?.invalid && (input?.dirty || input?.touched);
+    return input?.invalid && input?.touched; 
+    
   }
 }
