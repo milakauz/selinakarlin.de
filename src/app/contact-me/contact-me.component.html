@@ -1,1 +1,34 @@
-<p>contact-me works!</p>
+<div class="contact">
+    <h1 class="cutom-background">Say hi!</h1>
+    <div class=" cutom-background d-flex content">
+        <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
+        <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
+        
+        <form [formGroup]="contactForm" (submit)="sendMail()" class="cutom-background d-flex justify-center">
+            <!-- <div class="cutom-background"> -->
+                <label class="cutom-background" for="name">Your name</label>
+                <input class="cutom-background" id="name" type="text" formControlName="name" [class.error]="contactForm.get('name')?.dirty && contactForm.get('name')?.invalid || contactForm.get('name')?.touched">
+                <small class="text-error" *ngIf="contactForm.get('name')?.dirty && contactForm.get('name')?.invalid || contactForm.get('name')?.touched">
+                    Please enter your name.
+                </small>
+            <!-- </div> -->
+            <!-- <div class="cutom-background"> -->
+                <label class="cutom-background" for="email">Your email</label>
+                <input class="cutom-background" id="email" type="email" formControlName="email" [class.error]="contactForm.get('email')?.dirty && contactForm.get('email')?.invalid || contactForm.get('email')?.touched">
+                <small class="text-error" *ngIf="contactForm.get('email')?.dirty && contactForm.get('email')?.invalid || contactForm.get('email')?.touched">
+                    Please enter your email.
+                </small>
+            <!-- </div> -->
+            <!-- <div class="cutom-background align-center"> -->
+                <label class="cutom-background" for="message">Your message</label>
+                <input class="cutom-background" id="message" type="test" formControlName="message" [class.error]="contactForm.get('message')?.dirty && contactForm.get('message')?.invalid || contactForm.get('message')?.touched">
+                <small class="text-error" *ngIf="contactForm.get('message')?.dirty && contactForm.get('message')?.invalid || contactForm.get('message')?.touched" >
+                    Please enter a small message.
+                </small>
+            <!-- </div> -->
+            <div class="form-button d-flex justify-center">
+                <button class="cutom-background" type="submit" [disabled]="!contactForm">Send message :&#41;</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+// @import url(./../../styles.scss); // geht nicht
+$green: #00BC8F;
+$beige: rgba(240, 219, 199, 1);
+$black: #000000;
+$red: #BC002D;
+
+.contact {
+    background-image: url("^assets/background_footer.png");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 25px;
+}
+
+.cutom-background {
+    background-color: $black;
+}
+
+h1 {
+    margin-top: 80px;
+    color: $beige;
+    // background-color: $black;
+    max-width: fit-content;
+    animation: colorChange 4s infinite ease-in-out;
+
+    @keyframes colorChange {
+        0% {
+            color: $beige;
+        }
+
+        100% {
+            color: $green;
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.content {
+    width: 80%;
+    flex-direction: column;
+    gap: 24px;
+}
+
+span {
+    color: $beige;
+}
+
+small {
+    color: $red;
+    padding-top: 4%;
+    background-color: black;
+}
+
+form {
+    color: $beige;
+    flex-direction: column;
+    padding-bottom: 80px;
+
+    label {
+        padding-top: 3%;
+    }
+
+    input {
+        color: $beige;
+
+        height: 0%;
+        width: 90%;
+        padding: 4%;
+        border-bottom: 2px solid $beige;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+
+        &.error{
+            border: 2px solid $red;
+        }
+
+        &:focus {
+            border: 2px solid $beige;
+            outline: none;
+
+            &:last-of-type {
+                height: 200px;
+            }
+        }
+
+
+    }
+
+}
+
+.form-button {
+    background-color: $black;
+    padding-top: 24px;
+
+    button {
+        padding: 8px 16px;
+        border: 2px solid rgba(187, 187, 187, 1);
+        color: rgba(187, 187, 187, 1);
+    }
+}
+
+// h1 {
+//     background-color: $black;
+//     color: $beige;
+// }
