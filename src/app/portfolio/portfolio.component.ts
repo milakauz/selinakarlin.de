@@ -1,4 +1,6 @@
-import { Component, HostListener, ElementRef, ViewChild, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild, AfterViewInit, QueryList, ViewChildren, OnInit, OnDestroy } from '@angular/core';
+import { WindowScrollService } from "./../services/window-scroll.service";
+import { Subscription } from "rxjs";
 // import { throttle } from 'rxjs';
 
 @Component({
@@ -6,58 +8,60 @@ import { Component, HostListener, ElementRef, ViewChild, AfterViewInit, QueryLis
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-export class PortfolioComponent implements AfterViewInit {
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll() {
-    this.checkAnimationStatus();
+export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChildren('elementToAnimate') elementsToAnimate!: QueryList<ElementRef>;
+  private scrollSubscription!: Subscription;
+  public elementsPosition: { position: number; viewable: boolean }[] = [];
+  // portfolioAnimationData!: { [key: string]: any; viewable: boolean }[];
+
+  constructor(private windowScrollService: WindowScrollService) {
   }
 
-  private checkAnimationStatus() {
-
+  ngOnInit() {
   }
 
-  // plural because it's more than one element 
-  @ViewChildren('elementToAnimate') animationElements!: QueryList<ElementRef>;
+  ngAfterViewInit(): void {
+    this.calculatePositions();
 
-  ngAfterViewInit() {
-    this.animationElements.forEach((e:ElementRef, index:number) => {
-      const element = e.nativeElement;
-      let i = index;
-      console.log(element, i);
-      
-      // const i = element.get(index);
-      // console.log(i);
-      
-      // console.log(e.get(index), index);
-      // console.log(index);
+    this.scrollSubscription = this.windowScrollService.scrollY$.subscribe(scrollPosition => {
+      this.checkPositions(scrollPosition);
     })
-      console.log('query:', this.animationElements);
-      // console.log('index?:', this.animationElements.get(index:number));
-      
-    //   if (this.animationElements) {
-    //     this.animationElements.forEach((ref:ElementRef, index:number) => {
-    //      const element = ref.nativeElement;
-    //      const elementPosition = element.getBoundingClientRect();
-    //     console.log(index, element, elementPosition);
-        
-    //    });
-    //    // const element = this.animationElements.nativeElement.getBoundingClientRect();
-    //    // console.log(element);
-    //    // this.inFocus = true;
-    //  }
   }
 
-  constructor() {
-    this.portfolioList.forEach(() => this.animateVisibility.push(false));
-    // this.checkAnimationStatus = throttle(this.checkAnimationStatus.bind(this), 100);
+  checkPositions(scrollPosition: number) {
+    this.elementsPosition.forEach(element => {
+      if (scrollPosition >= element.position) {
+        console.log('Element ist im Viewport', element.position, element.viewable);
+        element.viewable = true;
+      } else if (scrollPosition <= element.position) {
+        element.viewable = false;
+        console.log('Element ist NICHT im Viewport', element.position, element.viewable);
+      }
+    });
   }
-  animateVisibility: boolean[] = [];
-  inFocus = false;
+
+  calculatePositions() {
+    this.elementsPosition = [];
+    // iterates through DOM-Elements to get their y-positions to be pushed in global array
+    this.elementsToAnimate.forEach((elementRef: ElementRef, index: number) => {
+      const rect = elementRef.nativeElement.getBoundingClientRect();
+      const posY = Math.round(rect.top + window.scrollY); // y position relative to document
+      // this.elementsPosition.push(posY, false)
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.scrollSubscription) {
+      this.scrollSubscription.unsubscribe();
+    }
+  }
+
+
   portfolioList = [
     {
       url: '../../assets/img/portfolio/el_pollo_loco.png',
       name: 'El Pollo Loco',
-      teckStack: 'CSS | HTML | JavaScript',
+      techStack: 'CSS | HTML | JavaScript',
       description: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and bottles to fight the endboss.',
       linkGithub: 'https://github.com/milakauz/elPolloLoco',
       // linkLive:'',
@@ -65,10 +69,12 @@ export class PortfolioComponent implements AfterViewInit {
     {
       url: '../../assets/img/portfolio/join.png',
       name: 'Join',
-      teckStack: 'CSS | HTML | JavaScript',
+      techStack: 'CSS | HTML | JavaScript',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       linkGithub: 'https://github.com/milakauz/Join',
       // linkLive:''
     }
   ]
 }
+
+
