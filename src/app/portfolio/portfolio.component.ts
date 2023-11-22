@@ -12,7 +12,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('elementToAnimate') elementsToAnimate!: QueryList<ElementRef>;
   private scrollSubscription!: Subscription;
   public elementsPosition: { position: number; viewable: boolean }[] = [];
-  // portfolioAnimationData!: { [key: string]: any; viewable: boolean }[];
 
   constructor(private windowScrollService: WindowScrollService) {
   }
