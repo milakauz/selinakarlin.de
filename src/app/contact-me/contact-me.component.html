@@ -1,34 +1,46 @@
-<div class="contact">
+<div class="contact" id="contactForm">
     <h1 class="cutom-background">Say hi!</h1>
     <div class=" cutom-background d-flex content">
         <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
         <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
-        
+
         <form [formGroup]="contactForm" (submit)="sendMail()" class="cutom-background d-flex justify-center">
             <!-- <div class="cutom-background"> -->
-                <label class="cutom-background" for="name">Your name</label>
-                <input class="cutom-background" id="name" type="text" formControlName="name" [class.error]="contactForm.get('name')?.dirty && contactForm.get('name')?.invalid || contactForm.get('name')?.touched">
-                <small class="text-error" *ngIf="contactForm.get('name')?.dirty && contactForm.get('name')?.invalid || contactForm.get('name')?.touched">
-                    Please enter your name.
-                </small>
+            <label class="cutom-background" for="name">Your name</label>
+            <input class="cutom-background" id="name" type="text" formControlName="name"
+                [class.error]="isFieldValid('name')">
+            <small class="text-error" *ngIf="isFieldValid('name')">
+                Please enter your name.
+            </small>
             <!-- </div> -->
             <!-- <div class="cutom-background"> -->
-                <label class="cutom-background" for="email">Your email</label>
-                <input class="cutom-background" id="email" type="email" formControlName="email" [class.error]="contactForm.get('email')?.dirty && contactForm.get('email')?.invalid || contactForm.get('email')?.touched">
-                <small class="text-error" *ngIf="contactForm.get('email')?.dirty && contactForm.get('email')?.invalid || contactForm.get('email')?.touched">
-                    Please enter your email.
-                </small>
+            <label class="cutom-background" for="email">Your email</label>
+            <input class="cutom-background" id="email" type="email" formControlName="email"
+                [class.error]="isFieldValid('email')">
+            <small class="text-error" *ngIf="isFieldValid('email')">
+                Please enter your email.
+            </small>
             <!-- </div> -->
             <!-- <div class="cutom-background align-center"> -->
-                <label class="cutom-background" for="message">Your message</label>
-                <input class="cutom-background" id="message" type="test" formControlName="message" [class.error]="contactForm.get('message')?.dirty && contactForm.get('message')?.invalid || contactForm.get('message')?.touched">
-                <small class="text-error" *ngIf="contactForm.get('message')?.dirty && contactForm.get('message')?.invalid || contactForm.get('message')?.touched" >
-                    Please enter a small message.
-                </small>
+            <label class="cutom-background" for="message">Your message</label>
+            <textarea class="cutom-background message-input" id="message" type="text" formControlName="message"
+                [class.error]="isFieldValid('message')" cols="30" rows="20"></textarea>
+            <small class="text-error" *ngIf="isFieldValid('message')">
+                Please enter a small message.
+            </small>
+            <div class="privacy-container d-flex">
+                <input id="privacyPolicy" type="checkbox" formControlName="privacyPolicy">
+                <label for="privacyPolicy">I've read the <a href="" class="privacy">privacy policy</a> and agree to the processing of my data as outlined.</label>
+            </div>
+            <small class="text-error" *ngIf="isFieldValid('privacyPolicy')">
+                Please accept the privacy policy.
+            </small>
             <!-- </div> -->
             <div class="form-button d-flex justify-center">
-                <button class="cutom-background" type="submit" [disabled]="!contactForm">Send message :&#41;</button>
+                <button class="cutom-background" type="submit" [disabled]="!contactForm.valid">Send message
+                    :&#41;</button>
             </div>
+            <span *ngIf="messageSucceed" style="margin-top: 16px;">Message sent! <br> Thanks :&#41;</span>
         </form>
     </div>
 </div>

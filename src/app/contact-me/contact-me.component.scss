@@ -46,6 +46,8 @@ h1 {
 
 span {
     color: $beige;
+    background-color: $black;
+    text-align: center;
 }
 
 small {
@@ -67,29 +69,68 @@ form {
         color: $beige;
 
         height: 0%;
-        width: 90%;
+        // width: 90%;
         padding: 4%;
         border-bottom: 2px solid $beige;
         border-top: none;
         border-right: none;
         border-left: none;
 
-        &.error{
+
+        &.error {
             border: 2px solid $red;
         }
 
         &:focus {
             border: 2px solid $beige;
             outline: none;
-
-            &:last-of-type {
-                height: 200px;
-            }
         }
-
 
     }
 
+    textarea {
+        height: 20px;
+        color: $beige;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid $beige;
+        padding: 4%;
+        resize: none;
+
+        &:focus {
+            height: 200px;
+            border: 2px solid beige;
+        }
+    }
+
+}
+
+.privacy-container {
+    margin-top: 16px;
+    background-color: $black;
+    color: $beige;
+    align-items: flex-start;
+    gap: 8px;
+
+    input {
+        width: 28px;
+    }
+
+    label {
+        padding-top: unset;
+        background-color: $black;
+    }
+
+    a {
+        background-color: #000000;
+        color: #00BC8F;
+        transition: transform 3s; //klappt nicht
+
+        &:hover {
+            font-weight: bold;
+            transform: scale(1.2);
+        }
+    }
 }
 
 .form-button {
@@ -100,6 +141,11 @@ form {
         padding: 8px 16px;
         border: 2px solid rgba(187, 187, 187, 1);
         color: rgba(187, 187, 187, 1);
+
+        &:enabled {
+            border-color: $beige;
+            color: $beige;
+        }
     }
 }
 
