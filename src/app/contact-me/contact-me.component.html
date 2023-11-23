@@ -4,43 +4,47 @@
         <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
         <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
 
-        <form [formGroup]="contactForm" (submit)="sendMail()" class="cutom-background d-flex justify-center">
-            <!-- <div class="cutom-background"> -->
+        <form [formGroup]="contactForm" #myForm (submit)="sendMail()" class="cutom-background d-flex justify-center">
+
             <label class="cutom-background" for="name">Your name</label>
-            <input class="cutom-background" id="name" type="text" formControlName="name"
-                [class.error]="isFieldValid('name')">
-            <small class="text-error" *ngIf="isFieldValid('name')">
+            <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
+                [class.error]="isFieldValid('name')" required>
+            <small class="text-error" *ngIf="nameError">
                 Please enter your name.
             </small>
-            <!-- </div> -->
-            <!-- <div class="cutom-background"> -->
+
             <label class="cutom-background" for="email">Your email</label>
-            <input class="cutom-background" id="email" type="email" formControlName="email"
-                [class.error]="isFieldValid('email')">
-            <small class="text-error" *ngIf="isFieldValid('email')">
+            <input class="cutom-background" #emailInput id="email" type="email" formControlName="email"
+                [class.error]="isFieldValid('email')" required>
+            <small class="text-error" *ngIf="emailError">
                 Please enter your email.
             </small>
-            <!-- </div> -->
-            <!-- <div class="cutom-background align-center"> -->
+
             <label class="cutom-background" for="message">Your message</label>
-            <textarea class="cutom-background message-input" id="message" type="text" formControlName="message"
-                [class.error]="isFieldValid('message')" cols="30" rows="20"></textarea>
-            <small class="text-error" *ngIf="isFieldValid('message')">
+            <textarea class="cutom-background message-input" #messageInput id="message" type="text"
+                formControlName="message" [class.error]="isFieldValid('message')" cols="30" rows="20" required></textarea>
+            <small class="text-error" *ngIf="messageError">
                 Please enter a small message.
             </small>
+
             <div class="privacy-container d-flex">
                 <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
-                <label for="privacyPolicy">I've read the <a href="" class="privacy">privacy policy</a> and agree to the processing of my data as outlined.</label>
+                <label for="privacyPolicy">I've read the
+                    <a href="" class="privacy">privacy policy</a>
+                    and agree to the processing of my data as outlined.
+                </label>
             </div>
-            <!-- *ngIf="isFieldValid('privacyPolicy')" -->
-            <small class="text-error" *ngIf="isFieldValid('privacyPolicy')">
+            <small class="text-error" *ngIf="checkBoxError">
                 Please accept the privacy policy.
             </small>
-            <!-- </div> -->
+
             <div class="form-button d-flex justify-center">
-                <button onclick="checkPrivacyCheckbox()" class="cutom-background" type="submit" [disabled]="!contactForm.valid">Send message
-                    :&#41;</button>
+                <button (click)="checkForm()" class="cutom-background" type="submit" #sendButton>
+                    <!-- [disabled]="!contactForm.valid" -->
+                    Send message:&#41;
+                </button>
             </div>
+
             <span *ngIf="messageSucceed" style="margin-top: 16px;">Message sent! <br> Thanks :&#41;</span>
         </form>
     </div>
