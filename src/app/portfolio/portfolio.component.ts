@@ -55,6 +55,10 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  redirectTo(link: string){
+    window.open(link, '_blank');
+  }
+
 
   portfolioList = [
     {
