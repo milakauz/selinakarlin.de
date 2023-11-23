@@ -4,28 +4,34 @@
         <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
         <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
 
-        <form [formGroup]="contactForm" #myForm (submit)="sendMail()" class="cutom-background d-flex justify-center">
+        <form [formGroup]="contactForm" #myForm (submit)="sendMail()" class="cutom-background">
 
-            <label class="cutom-background" for="name">Your name</label>
-            <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
-                [class.error]="isFieldValid('name')" required>
-            <small class="text-error" *ngIf="nameError">
-                Please enter your name.
-            </small>
+            <div class="form-element cutom-background d-flex justify-center">
+                <label class="cutom-background" for="name" [class.d-none]="nameError">Your name</label>
+                <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
+                    [class.error]="isFieldValid('name') || nameError" required>
+                <small class="text-error" *ngIf="nameError">
+                    Please enter your name.
+                </small>
+            </div>
 
-            <label class="cutom-background" for="email">Your email</label>
-            <input class="cutom-background" #emailInput id="email" type="email" formControlName="email"
-                [class.error]="isFieldValid('email')" required>
-            <small class="text-error" *ngIf="emailError">
-                Please enter your email.
-            </small>
+            <div class="form-element cutom-background d-flex justify-center">
+                <label class="cutom-background" for="email" [class.d-none]="emailError">Your email</label>
+                <input class="cutom-background" #emailInput id="email" type="email" formControlName="email"
+                    [class.error]="isFieldValid('email') || emailError" required>
+                <small class="text-error" *ngIf="emailError">
+                    Please enter your email.
+                </small>
+            </div>
 
-            <label class="cutom-background" for="message">Your message</label>
-            <textarea class="cutom-background message-input" #messageInput id="message" type="text"
-                formControlName="message" [class.error]="isFieldValid('message')" cols="30" rows="20" required></textarea>
-            <small class="text-error" *ngIf="messageError">
-                Please enter a small message.
-            </small>
+            <div class="form-element cutom-background d-flex justify-center">
+                <label class="cutom-background" for="message" [class.d-none]="messageError">Your message</label>
+                <textarea class="cutom-background message-input" #messageInput id="message" type="text"
+                    formControlName="message" [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
+                <small class="text-error" *ngIf="messageError">
+                    Please enter a small message.
+                </small>
+            </div>
 
             <div class="privacy-container d-flex">
                 <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>

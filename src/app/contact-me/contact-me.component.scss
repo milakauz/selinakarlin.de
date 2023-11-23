@@ -38,7 +38,6 @@ h1 {
 }
 
 .content {
-    width: 80%;
     flex-direction: column;
     gap: 24px;
 }
@@ -57,48 +56,66 @@ small {
 
 form {
     color: $beige;
-    flex-direction: column;
     padding-bottom: 80px;
+    gap: 32px;
+    display: contents;
 
-    label {
+    .form-element {
+        flex-direction: column;
+        position: relative;
         padding-top: 3%;
-    }
-
-    input {
-        color: $beige;
-
-        height: 0%;
-        // width: 90%;
-        padding: 4%;
-        border-bottom: 2px solid $beige;
-        border-top: none;
-        border-right: none;
-        border-left: none;
 
 
-        &.error {
-            border: 2px solid $red;
+        &:focus-within label {
+            top: 0;
+            font-weight: bold;
         }
 
-        &:focus {
-            border: 2px solid $beige;
+        label {
+            position: absolute;
+            left: 8px;
+        }
+
+        input {
+            color: $beige;
+            height: 0%;
+            // width: 90%;
+            padding: 4%;
+            border-bottom: 2px solid $beige;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+
+
+            &.error {
+                border: 2px solid $red;
+            }
+
+            &:focus {
+                border: 2px solid $beige;
+                outline: none;
+                height: 32px;
+            }
+
+        }
+
+        textarea {
+            height: 20px;
+            color: $beige;
             outline: none;
-        }
+            border: none;
+            border-bottom: 2px solid $beige;
+            padding: 4%;
+            resize: none;
 
-    }
+            &:focus {
+                height: 200px;
+                border: 2px solid beige;
+            }
 
-    textarea {
-        height: 20px;
-        color: $beige;
-        outline: none;
-        border: none;
-        border-bottom: 2px solid $beige;
-        padding: 4%;
-        resize: none;
-
-        &:focus {
-            height: 200px;
-            border: 2px solid beige;
+            &.error{
+                border: 2px solid $red;
+            }
         }
     }
 
