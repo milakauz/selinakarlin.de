@@ -19,20 +19,23 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu() {
     this.isActivated = !this.isActivated;
-    if (this.isActivated) {
-      document.body.classList.add('no-scroll');
-      this.links?.classList.add('no-scroll')
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-    console.log(this.isActivated);
+    // if (this.isActivated) {
+    //   document.body.classList.add('no-scroll');
+    //   this.links?.classList.add('no-scroll')
+    // } else {
+    //   document.body.classList.remove('no-scroll');
+    // }
+    // console.log(this.isActivated);
   }
 
-  clickControl(id:string){
+  clickControl(id: string) {
     this.linkAnimationActive = true;
-    // debugger;
-    setTimeout (() =>{
+    setTimeout(() => {
       this.toggleMenu();
+    }, 1200);
+
+    // debugger;
+    setTimeout(() => {
       this.scrollToSection(id);
       this.linkAnimationActive = false;
     }, 1500);
@@ -40,6 +43,7 @@ export class HeaderComponent implements OnInit {
 
   scrollToSection(id: string) {
     // this.isActivated = false;
+    // document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     this.viewportScroller.scrollToAnchor(id);
   }
 }
