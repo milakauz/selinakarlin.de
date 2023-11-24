@@ -1,3 +1,18 @@
-<div class="content-wrapper" *ngFor="let item of socialMediaList">
-    <img src="{{ item.imgSource }}" alt="">
+<div class="content-wrapper">
+    <div class="socials-wrapper">
+        <a *ngFor="let item of socialMediaList"
+            [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
+            [attr.target]="item.name !== 'mail' ? '_blank' : null">
+            <img src="{{item.imgSource}}" alt="">
+        </a>
+    </div>
+
+    <div class="logo-wrapper">
+        <img style="height: 64px;" src="/../../favicon.ico" alt="">
+    </div>
+
+    <div class="mail-wrapper">
+        <a href="mailto:karlinselina@gmail.com">karlinselina@gmail.com</a>
+    </div>
+    <a>Legal notive</a>
 </div>
