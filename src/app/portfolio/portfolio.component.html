@@ -2,16 +2,17 @@
 <p class="m-0-25">This page is a sample of my work - please feel free to try them out.</p>
 <div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container m-0-25"
     [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}"> 
-    <!-- hier drüber kann ich noch rechts und links für das &::after einstellen -->
+    <!-- noch ein Container, um über elemenrToAnimate zu iterieren und viewable zu checken?-->
     <div class="project-image" >
-        <img class="grayscale" src="{{ project.url }}">
+        <img  src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
+        <div class="frame" data-aos="fade-left" data-aos-duration="3000"></div>
     </div>
-    <h3 [ngClass]="">{{ project.name }}</h3>
-    <h6> {{ project.techStack }} </h6>
-    <p class="description">
+    <h3 data-aos="fade-left" data-aos-duration="3000">{{ project.name }}</h3>
+    <h6 data-aos="fade-left" data-aos-duration="3000"> {{ project.techStack }} </h6>
+    <p data-aos="fade-left" data-aos-duration="3000" class="description">
         {{ project.description }}
     </p>
-    <div class="project-button d-flex">
+    <div data-aos="fade-left" data-aos-duration="3000" class="project-button d-flex">
         <button (click)="redirectTo(project.linkGithub)">Github</button>
         <button>Live Test</button>
     </div>
