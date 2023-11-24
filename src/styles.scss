@@ -76,6 +76,15 @@ button {
     margin: 0 25px;
 }
 
+.arrow-animated {
+    background: transparent;
+ 
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
 .green {
     color: $green;
     font-weight: bold;
