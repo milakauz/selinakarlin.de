@@ -1,15 +1,14 @@
 // @import url(./../../styles.scss); // geht nicht
 $green: #00BC8F;
 // $beige: rgba(240, 219, 199, 1);
-$beige: rgba(255,252,243);
+$beige: rgba(255, 252, 243);
 $black: #000000;
 $red: #BC002D;
 
-.contact {
+.contact-form {
     background-image: url("^assets/background_footer.png");
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 0 25px;
 }
 
 .cutom-background {
@@ -38,7 +37,7 @@ h1 {
     text-align: center;
 }
 
-.content {
+.form-content {
     flex-direction: column;
     gap: 24px;
 }
@@ -114,7 +113,7 @@ form {
                 border: 2px solid beige;
             }
 
-            &.error{
+            &.error {
                 border: 2px solid $red;
             }
         }
@@ -164,6 +163,27 @@ form {
             color: $beige;
         }
     }
+}
+
+@media only screen and (min-width: 768px) {
+
+    h1 {
+        position: absolute;
+        left: 80px;
+    }
+
+    #contactForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .form-content {
+        margin-top: 160px;
+        width: 64%;
+    }
+
 }
 
 // h1 {

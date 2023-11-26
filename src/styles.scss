@@ -30,6 +30,10 @@ h3 {
     font-family: 'Syne';
 }
 
+h4 {
+    font-family: 'Syne';
+}
+
 h6 {
     font-size: clamp(18px, 18px, 22px);
     font-family: Overpass;
@@ -52,6 +56,7 @@ a {
 
 button {
     font-family: Overpass;
+
     &:hover {
         cursor: pointer;
     }
@@ -69,16 +74,17 @@ button {
 //     display: flex;
 // }
 
-.p-0-25{
+.p-0-25 {
     padding: 0 25px;
 }
+
 .m-0-25 {
     margin: 0 25px;
 }
 
 .arrow-animated {
     background: transparent;
- 
+
 }
 
 .flex-column {
@@ -112,4 +118,16 @@ button {
 
 .font-stretch {
     font-stretch: ultra-expanded;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .p-0-25 {
+        padding: 16px 80px;
+    }
+
+    .m-0-25 {
+        margin: 0 80px;
+    }
+
 }

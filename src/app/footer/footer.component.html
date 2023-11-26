@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="footer-wrapper">
     <div class="socials-wrapper">
         <a *ngFor="let item of socialMediaList"
             [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
@@ -12,7 +12,7 @@
     </div>
 
     <div class="mail-wrapper">
-        <a href="mailto:karlinselina@gmail.com">karlinselina@gmail.com</a>
+        <a href="mailto:karlinselina@gmail.com" target="_blank">karlinselina@gmail.com</a>
     </div>
-    <a>Legal notive</a>
+    <a routerLink="/legal-notice">Legal notice</a>
 </div>

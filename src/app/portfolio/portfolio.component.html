@@ -1,19 +1,27 @@
-<h1 class="m-0-25" id="portfolioSection">Portfolio</h1>
-<p class="m-0-25">This page is a sample of my work - please feel free to try them out.</p>
-<div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container m-0-25"
-    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}"> 
-    <!-- noch ein Container, um über elemenrToAnimate zu iterieren und viewable zu checken?-->
-    <div class="project-image" >
-        <img  src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
-        <div class="frame" data-aos="fade-left" data-aos-duration="3000"></div>
+<div class="portfolio-head">
+    <div class="pf-head-wrapper">
+        <h1 class="m-0-25">Portfolio</h1>
+        <p class="m-0-25">This page is a sample of my work - please feel free to try them out.</p>
     </div>
-    <h3 data-aos="fade-left" data-aos-duration="3000">{{ project.name }}</h3>
-    <h6 data-aos="fade-left" data-aos-duration="3000"> {{ project.techStack }} </h6>
-    <p data-aos="fade-left" data-aos-duration="3000" class="description">
-        {{ project.description }}
-    </p>
-    <div data-aos="fade-left" data-aos-duration="3000" class="project-button d-flex">
-        <button (click)="redirectTo(project.linkGithub)">Github</button>
-        <button>Live Test</button>
+</div>
+<div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container m-0-25"
+    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}">
+    <!-- noch ein Container, um über elemenrToAnimate zu iterieren und viewable zu checken?-->
+    <div class="project-image">
+        <img src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
+        <div class="frame" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="3000"></div>
+    </div>
+    <div class="pf-info" data-aos-duration="3000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
+        <div class="pf-text">
+            <h3>{{ project.name }}</h3>
+            <h6> {{ project.techStack }} </h6>
+            <p class="description">
+                {{ project.description }}
+            </p>
+        </div>
+        <div class="portfolio-button d-flex" [ngStyle]="{'align-items': i % 2 === 0 ? 'flex-end' : 'flex-start'}">
+            <button (click)="redirectTo(project.linkGithub)">Github</button>
+            <button>Live Test</button>
+        </div>
     </div>
 </div>

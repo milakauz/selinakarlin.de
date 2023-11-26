@@ -1,24 +1,17 @@
 [data-aos="colour"] {
-    animation: coloring 2s ease-in forwards;
+    transition: filter 3s ease;
+    filter: grayscale(1);
+
+    &.aos-animate {
+        filter: grayscale(0);
+    }
 }
 
 
 img {
     width: 88%;
     height: 100%;
-    filter: grayscale(1);
 }
-
-@keyframes coloring {
-    from {
-        filter: grayscale(1)
-    }
-
-    to {
-        filter: grayscale(0);
-    }
-}
-
 
 p {
     font-size: clamp(12px, 16px, 20px);
@@ -96,4 +89,37 @@ button {
     //     box-sizing: border-box;
     //     /* Stellt sicher, dass die Umrandung innerhalb der Größe des divs bleibt */
     // }
+}
+
+@media only screen and (min-width: 768px) {
+    .portfolio-container {
+        margin-bottom: 180px;
+    }
+
+    .pf-head-wrapper {
+        width: 450px;
+        max-width: 500px;
+    }
+
+    .portfolio-head {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pf-info {
+        display: flex;
+    }
+
+    .portfolio-button {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+
+    .pf-text {
+        width: 50%;
+    }
+
+
 }

@@ -12,6 +12,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from "@angular/forms";
     FooterComponent,
     HeaderComponent,
     PortfolioComponent,
-    SkillsComponent
+    SkillsComponent,
+    LegalNoticeComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
