@@ -1,18 +1,19 @@
-<div class="portfolio-head">
+<div class=" m-0-25 portfolio-head">
     <div class="pf-head-wrapper">
-        <h1 class="m-0-25">Portfolio</h1>
-        <p class="m-0-25">This page is a sample of my work - please feel free to try them out.</p>
+        <h1>Portfolio</h1>
+        <p>This page is a sample of my work - please feel free to try them out.</p>
     </div>
 </div>
 <div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container m-0-25"
-    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}">
+    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}" [class.row-reverse]="i % 2 !== 0"> 
     <!-- noch ein Container, um über elemenrToAnimate zu iterieren und viewable zu checken?-->
     <div class="project-image">
         <img src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
-        <div class="frame" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="3000"></div>
+        <div class="frame" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="1500"></div>
     </div>
-    <div class="pf-info" data-aos-duration="3000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
-        <div class="pf-text">
+    <div class="pf-info" data-aos-duration="3000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
+        [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
+        <div class="pf-text" [class.text-left]="i % 2 !== 0">
             <h3>{{ project.name }}</h3>
             <h6> {{ project.techStack }} </h6>
             <p class="description">
@@ -25,3 +26,5 @@
         </div>
     </div>
 </div>
+
+<!-- Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839876">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839876">Pixabay</a> -->

@@ -18,6 +18,8 @@ $red: #BC002D;
 h1 {
     margin-top: 80px;
     color: $beige;
+    position: absolute;
+    left: 25px;
     // background-color: $black;
     // max-width: fit-content;
     animation: colorChange 4s infinite ease-in-out;
@@ -38,6 +40,7 @@ h1 {
 }
 
 .form-content {
+    margin-top: 160px;
     flex-direction: column;
     gap: 24px;
 }
@@ -127,6 +130,7 @@ form {
     color: $beige;
     align-items: flex-start;
     gap: 8px;
+    flex-direction: row-reverse;
 
     input {
         width: 28px;
@@ -134,59 +138,81 @@ form {
 
     label {
         padding-top: unset;
-        background-color: $black;
-    }
+        cursor: pointer;
+        background: transparent;
 
-    a {
-        background-color: #000000;
-        color: #00BC8F;
-        transition: transform 3s; //klappt nicht
-
-        &:hover {
+        // background-color: $black;
+        &:hover a {
             font-weight: bold;
-            transform: scale(1.2);
+
+            input {
+                background-color: #00BC8F;
+            }
+
+        }
+
+        a {
+            background-color: #000000;
+            color: #00BC8F;
+            transition: transform 3s; //klappt nicht
+
+            &:hover {
+                font-weight: bold;
+                transform: scale(1.2);
+            }
         }
     }
 }
 
-.form-button {
-    background-color: $black;
-    padding-top: 24px;
+    .form-button {
+        background-color: $black;
+        padding-top: 24px;
 
-    button {
-        padding: 8px 16px;
-        border: 2px solid rgba(187, 187, 187, 1);
-        color: rgba(187, 187, 187, 1);
+        button {
+            padding: 8px 16px;
+            border: 2px solid rgba(187, 187, 187, 1);
+            color: rgba(187, 187, 187, 1);
 
-        &:enabled {
-            border-color: $beige;
-            color: $beige;
+            &:enabled {
+                border-color: $beige;
+                color: $beige;
+            }
         }
     }
-}
 
-@media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 768px) {
 
-    h1 {
-        position: absolute;
-        left: 80px;
+        h1 {
+            position: absolute;
+            left: 80px;
+        }
+
+        // .contact-form {
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: center;
+        //     position: relative;
+        // }
+
+        .form-content {
+            margin-top: 160px;
+            width: 64%;
+        }
+
     }
 
-    #contactForm {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
+    @media only screen and (min-width: 1000px) {
+        h1 {
+            left: 160px;
+        }
+
+        .contact-form {
+            padding-bottom: 4px !important;
+        }
     }
 
-    .form-content {
-        margin-top: 160px;
-        width: 64%;
+    @media only screen and (min-width: 1400px) {
+        h1 {
+            left: 320px;
+        }
     }
-
-}
-
-// h1 {
-//     background-color: $black;
-//     color: $beige;
-// }

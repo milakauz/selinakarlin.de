@@ -2,14 +2,14 @@
     <h1>My skills</h1>
 </div>
 <div class="skills-container m-0-25">
-    <div class="skills-grid">
-        <div *ngFor="let skill of skillsList" class="d-flex align-center">
+    <div class="skills-wrap">
+        <div *ngFor="let skill of skillsList" class="skill-item d-flex align-center">
             <img src="{{ skill.imgSource }}">
             <span>{{ skill.name }}</span>
         </div>
     </div>
 </div>
-<div class="skills-arrow">
+<div class="skills-arrow m-0-25">
     <img id="arrowImg" data-aos="fade-down-right" data-aos-duration="1000" class="arrow-animated"
      src="/assets/img/arrows/arrow_right_mobile_1.png">
 </div>

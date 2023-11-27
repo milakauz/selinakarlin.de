@@ -23,10 +23,15 @@ body {
 
 h1 {
     font-family: 'Syne';
+    font-size: 32px;
+
+    &:hover {
+        color: $green;
+    }
 }
 
 h3 {
-    font-size: clamp(24px, 30px, 38px);
+    font-size: 24px;
     font-family: 'Syne';
 }
 
@@ -35,7 +40,7 @@ h4 {
 }
 
 h6 {
-    font-size: clamp(18px, 18px, 22px);
+    font-size: 18px;
     font-family: Overpass;
     color: $green;
     margin-block-start: 1em;
@@ -43,6 +48,7 @@ h6 {
 }
 
 p {
+    font-size: 16px;
     font-family: Overpass;
 }
 
@@ -130,4 +136,73 @@ button {
         margin: 0 80px;
     }
 
+}
+
+@media only screen and (min-width: 1000px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+
+    h3 {
+        font-size: 32px;
+    }
+
+    h6 {
+        font-size: 24px;
+    }
+
+    p,
+    button,
+    span {
+        font-size: 18px;
+    }
+
+    .p-0-25 {
+        padding: 32px 160px;
+    }
+
+    .m-0-25 {
+        margin: 0 160px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+
+    h1 {
+        font-size: 80px;
+        margin-block-start: 0.16em;
+    }
+
+    h3 {
+        font-size: 48px;
+    }
+
+    h6 {
+        font-size: 32px;
+    }
+
+    .p-0-25 {
+        padding: 48px 320px;
+    }
+
+    .m-0-25 {
+        margin: 0 320px;
+    }
+}
+
+@media only screen and (min-width: 1750px) {
+    .p-0-25 {
+        padding: 56px 380px;
+    }
+
+    .m-0-25 {
+        margin: 0 380px;
+    }
+    p,
+    button,
+    span {
+        font-size: 24px;
+    }
 }

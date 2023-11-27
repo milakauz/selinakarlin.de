@@ -11,6 +11,10 @@
         font-stretch: expanded;
         text-align: center;
         font-weight: 800;
+
+        &:hover{
+            color: #000000 !important;
+        }
     }
 
     .divider {
@@ -99,4 +103,22 @@
     }
 
 
+}
+
+ @media only screen and (min-width: 1400px) {
+    .divider{
+        width: 24rem !important;
+    }
+     button {
+       height: 80px !important;
+       width: 320px !important;
+    }
+
+    .atf-bottom {
+        height: 256px !important;
+
+        .scroll-down {
+            justify-content: end !important;
+        }
+    }
 }

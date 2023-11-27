@@ -1,4 +1,9 @@
-<div class="footer-wrapper">
+<footer>
+    
+    <a href="#atf" class="scroll-wrapper">
+        <img src="/assets/img/arrows/scroll2top.png">
+    </a>
+
     <div class="socials-wrapper">
         <a *ngFor="let item of socialMediaList"
             [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
@@ -10,9 +15,14 @@
     <div class="logo-wrapper">
         <img style="height: 64px;" src="/../../favicon.ico" alt="">
     </div>
+    <div class="copyright-wrapper">
+        &#169; Selina Karlin 2023
+    </div>
 
     <div class="mail-wrapper">
         <a href="mailto:karlinselina@gmail.com" target="_blank">karlinselina@gmail.com</a>
     </div>
-    <a routerLink="/legal-notice">Legal notice</a>
-</div>
+    <div class="legal-link">
+        <a class="animate-link" routerLink="/legal-notice">Legal notice</a>
+    </div>
+</footer>

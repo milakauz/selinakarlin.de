@@ -1,4 +1,4 @@
-<div class="p-0-25" class="contact-form d-flex justify-center">
+<div class="p-0-25 contact-form d-flex justify-center">
     <h1 class="cutom-background">Say hi!</h1>
     <div class=" cutom-background d-flex form-content">
         <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
@@ -34,11 +34,12 @@
             </div>
 
             <div class="privacy-container d-flex">
-                <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
                 <label for="privacyPolicy">I've read the
                     <a href="" class="privacy">privacy policy</a>
                     and agree to the processing of my data as outlined.
                 </label>
+                    <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
+
             </div>
             <small class="text-error" *ngIf="checkBoxError">
                 Please accept the privacy policy.
