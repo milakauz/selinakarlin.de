@@ -44,15 +44,14 @@ button {
     }
 }
 
-.portfolio-button{
+.portfolio-button {
     justify-content: space-between;
 }
 
 .project-image {
     position: relative;
     padding-bottom: 5%;
-
-overflow: hidden;
+    overflow: hidden;
 
     .frame {
         position: absolute;
@@ -63,31 +62,7 @@ overflow: hidden;
         background: transparent;
         border: 4px solid black;
         left: 5%;
-
     }
-
-    // display: inline-block; // div nimmt Größe des img an
-
-    // .frame {
-    //     position: absolute;
-    //     top: 8%;
-    //     left: 8%;
-    //     background-color: transparent;
-    //     bottom: -8%;
-    // }
-
-
-    // &::after {
-    //     content: "";
-    //     position: absolute;
-    //     top: 4%;
-    //     left: 4%;
-    //     right: 9%;
-    //     bottom: 4%;
-    //     border: 2px solid black;
-    //     box-sizing: border-box;
-    //     /* Stellt sicher, dass die Umrandung innerhalb der Größe des divs bleibt */
-    // }
 }
 
 @media only screen and (min-width: 768px) {
@@ -135,11 +110,11 @@ overflow: hidden;
         display: flex;
     }
 
-    .pf-info{
+    .pf-info {
         flex-direction: column !important;
     }
 
-    .portfolio-button{
+    .portfolio-button {
         flex-direction: row;
         width: unset !important;
         justify-content: space-between;
@@ -150,7 +125,7 @@ overflow: hidden;
     }
 
     .project-image {
-        width: 150% !important;
+        width: 100%;
     }
 
     .row-reverse {
