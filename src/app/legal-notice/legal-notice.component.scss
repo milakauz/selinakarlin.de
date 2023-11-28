@@ -8,3 +8,9 @@
 p {
     text-align: center;
 }
+
+@media screen and (min-width: 1400px) {
+    .legal-wrapper{
+        margin-top: 123px;
+    }
+}
