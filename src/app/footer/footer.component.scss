@@ -28,47 +28,25 @@ footer {
 .socials-wrapper {
     display: flex;
     gap: 32px;
-    background: transparent;
 
     a {
-        background: transparent;
-
         display: flex;
         align-items: center;
     }
-
-    img {
-        background: transparent;
-    }
 }
-
-.logo-wrapper {
-    background: transparent;
-
-    img {
-        background: transparent;
-    }
-}
-
 
 .mail-wrapper {
-    background: transparent;
-
     a {
-        background: transparent;
         color: white;
         font-size: 24px;
     }
 }
 
 .legal-link {
-    background: transparent;
-
     position: relative;
     text-decoration: none;
 
     .animate-link {
-        background: transparent;
         color: white;
         font-size: 16px;
 
@@ -111,12 +89,10 @@ footer {
             top: 0;
             right: 140px;
             display: block;
-            background: transparent;
 
             img {
                 padding-top: 15px;
                 cursor: pointer;
-                background: transparent;
                 transition: transform 1s ease;
                 transform-origin: bottom;
 
@@ -136,7 +112,6 @@ footer {
 
         .copyright-wrapper {
             display: block;
-            background: transparent;
             color: beige;
             grid-column: 1;
             grid-row: 2;

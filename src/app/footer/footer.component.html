@@ -1,29 +1,29 @@
 <footer [ngClass]="{'footer-absolute': onPageLegalNotice}"> 
     
-    <a href="#atf" class="scroll-wrapper">
-        <img src="/assets/img/arrows/scroll2top.png">
+    <a href="#atf" class="scroll-wrapper bg-transparent">
+        <img class="bg-transparent" src="/assets/img/arrows/scroll2top.png">
     </a>
 
-    <div class="socials-wrapper">
-        <a *ngFor="let item of socialMediaList"
+    <div class="socials-wrapper bg-transparent">
+        <a *ngFor="let item of socialMediaList" class="bg-transparent"
             [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
             [attr.target]="item.name !== 'mail' ? '_blank' : null">
-            <img src="{{item.imgSource}}" alt="">
+            <img src="{{item.imgSource}}" class="bg-transparent">
         </a>
     </div>
 
-    <a class="logo-wrapper" href="/">
-        <img style="height: 64px;" src="/../../favicon.ico" alt="">
+    <a class="logo-wrapper bg-transparent" href="/">
+        <img class="bg-transparent" style="height: 64px;" src="/../../favicon.ico" alt="">
     </a>
 
-    <div class="copyright-wrapper">
+    <div class="copyright-wrapper bg-transparent">
         &#169; Selina Karlin 2023
     </div>
 
-    <div class="mail-wrapper">
-        <a href="mailto:karlinselina@gmail.com" target="_blank">karlinselina@gmail.com</a>
+    <div class="mail-wrapper bg-transparent">
+        <a class="bg-transparent" href="mailto:karlinselina@gmail.com" target="_blank">karlinselina@gmail.com</a>
     </div>
-    <div class="legal-link">
-        <a class="animate-link" routerLink="/legal-notice">Legal notice</a>
+    <div class="legal-link bg-transparent">
+        <a class="animate-link bg-transparent" routerLink="/legal-notice">Legal notice</a>
     </div>
 </footer>

@@ -150,60 +150,79 @@ nav {
 }
 
 .navigation-footer {
+    height: 250px;
+    background-size: 100% auto;
     background-image: url('/assets/background_footer.png');
     object-fit: cover;
-    background-color: #000000;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 320px;
     position: fixed;
     bottom: 0;
+    display: flex;
+    align-items: normal;
+    justify-content: center;
+    flex-direction: column;
+    h1 {
+        color: rgba(240, 219, 199, 1);
+    }
 
-    .footer-content {
-        padding-left: 160px;
-        padding-right: 160px;
+    .links-to-contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        h1 {
+        a {
             color: rgba(240, 219, 199, 1);
+
+            &:hover {
+                color: #00bc8f;
+            }
         }
 
-        .links-to-contact {
+        .mail {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            align-items: end;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: end;
+            width: 160px;
+            padding-top: 19px;
 
             a {
-                color: rgba(240, 219, 199, 1);
+                transition: transform 250ms ease-out;
 
                 &:hover {
-                    color: #00bc8f;
-                }
-            }
-
-            .mail {
-                display: flex;
-                align-items: end;
-            }
-
-            .socials {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: end;
-                width: 300px;
-                padding-top: 80px;
-
-                a {
-                    transition: transform 250ms ease-out;
-
-                    &:hover {
-                        transform: translateY(-20px);
-                    }
-
-                    img {
-                        background: transparent;
-                    }
+                    transform: translateY(-20px);
                 }
             }
         }
     }
+}
 
+
+@media only screen and (min-width: 768px) and (min-width: 999px) {
+    .socials {
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .navigation-footer{
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .navigation-footer{
+        height: 350px;
+    }
+}
+// for E-Readers 
+@media screen and (min-width: 799px) and (min-height: 1200px) {
+    .navigation-footer{
+        height: 300px;
+    }
 }

@@ -9,7 +9,7 @@
     <!-- noch ein Container, um über elemenrToAnimate zu iterieren und viewable zu checken?-->
     <div class="project-image">
         <img src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
-        <div class="frame" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="1500"></div>
+        <div class="frame bg-transparent" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="1500"></div>
     </div>
     <div class="pf-info" data-aos-duration="3000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
         [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
@@ -21,8 +21,8 @@
             </p>
         </div>
         <div class="portfolio-button d-flex" [ngStyle]="{'align-items': i % 2 === 0 ? 'flex-end' : 'flex-start'}">
-            <button (click)="redirectTo(project.linkGithub)">Github</button>
-            <button>Live Test</button>
+            <button class="bg-transparent" (click)="redirectTo(project.linkGithub)">Github</button>
+            <button class="bg-transparent">Live Test</button>
         </div>
     </div>
 </div>

@@ -12,7 +12,8 @@
 
     </nav>
 </header>
-<div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''" class="show-menu-links d-none p-0-25">
+<div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''"
+    class="show-menu-links d-none p-0-25">
     <div class="link-wrapper" [class.animated]="linkAnimationActive">
         <a (click)="clickControl('aboutMe')">About me</a>
     </div>
@@ -23,20 +24,23 @@
         <a (click)="clickControl('portfolioSection')">Portfolio</a>
     </div>
 
-    <div class="navigation-footer padding-custom">
-        <div class="footer-content bg-transparent">
+    <div class="navigation-footer">
+        <div class="footer-content bg-transparent margin-custom">
             <h1 class="bg-transparent">Say Hi!</h1>
             <div class="links-to-contact bg-transparent">
                 <div class="mail bg-transparent">
                     <a href="mailto:karlinselina@gmail.com" class="bg-transparent">karlinselina@gmail.com</a>
                 </div>
                 <div class="socials bg-transparent">
-                    <a class="bg-transparent" href="https://github.com/milakauz"><img
-                            src="./../../assets/img/socials/github-white.svg"></a>
-                    <a class="bg-transparent" href="mailto:karlinselina@gmail.com"><img
-                            src="assets/img/socials/email-white.svg" alt=""></a>
-                    <a class="bg-transparent" href="https://www.linkedin.com/in/selinakarlin/"><img
-                            src="../../assets/img/socials/linkedIn.png" alt=""></a>
+                    <a class="bg-transparent" href="https://github.com/milakauz">
+                        <img class="bg-transparent" src="./../../assets/img/socials/github-white.svg">
+                    </a>
+                    <a class="bg-transparent" href="mailto:karlinselina@gmail.com">
+                        <img class="bg-transparent" src="assets/img/socials/email-white.svg" alt="">
+                    </a>
+                    <a class="bg-transparent" href="https://www.linkedin.com/in/selinakarlin/">
+                        <img class="bg-transparent" src="../../assets/img/socials/linkedIn.png" alt="">
+                    </a>
                 </div>
             </div>
 
