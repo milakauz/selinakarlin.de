@@ -68,23 +68,15 @@ button {
     }
 }
 
-// .grayscale {
-//     filter: grayscale(1);
-// }
+.bg-transparent{
+    background: transparent;
+}
 
-// .photo {
-//     height: 300px;
-//     width: 280px;
-//     background-color: grey;
-//     margin-top: 160px;
-//     display: flex;
-// }
-
-.p-0-25 {
+.padding-custom {
     padding: 0 25px;
 }
 
-.m-0-25 {
+.margin-custom {
     margin: 0 25px;
 }
 
@@ -128,11 +120,11 @@ button {
 
 @media only screen and (min-width: 768px) {
 
-    .p-0-25 {
+    .padding-custom {
         padding: 16px 80px;
     }
 
-    .m-0-25 {
+    .margin-custom {
         margin: 0 80px;
     }
 
@@ -159,11 +151,11 @@ button {
         font-size: 18px;
     }
 
-    .p-0-25 {
+    .padding-custom {
         padding: 32px 160px;
     }
 
-    .m-0-25 {
+    .margin-custom {
         margin: 0 160px;
     }
 }
@@ -183,21 +175,21 @@ button {
         font-size: 32px;
     }
 
-    .p-0-25 {
+    .padding-custom {
         padding: 48px 320px;
     }
 
-    .m-0-25 {
+    .margin-custom {
         margin: 0 320px;
     }
 }
 
 @media only screen and (min-width: 1750px) {
-    .p-0-25 {
+    .padding-custom {
         padding: 56px 380px;
     }
 
-    .m-0-25 {
+    .margin-custom {
         margin: 0 380px;
     }
     p,
