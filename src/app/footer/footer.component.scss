@@ -11,6 +11,13 @@ footer {
     // justify-content: space-evenly;
     padding-top: 32px;
     padding-bottom: 32px;
+
+}
+.footer-absolute{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .copyright-wrapper,

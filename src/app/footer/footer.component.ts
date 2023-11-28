@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  onPageLegalNotice: boolean = false;
+
+  constructor(private route: ActivatedRoute, private router: Router){
+    this.router.events.subscribe(event =>{
+      if (event instanceof NavigationEnd){
+        this.onPageLegalNotice = this.router.url === '/legal-notice';
+      }
+    });
+  }
+  
   socialMediaList = [
     {
       name: 'gitHub',
