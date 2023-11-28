@@ -31,11 +31,16 @@ nav {
     align-items: center;
     width: 100%;
 
-    // background-color: rgba(240,219,199, 0.6);
     img {
-        height: 24px;
-        width: 24px;
+        height: 32px;
+        cursor: pointer;
     }
+
+    // // background-color: rgba(240,219,199, 0.6);
+    // img {
+    //     height: 24px;
+    //     width: 24px;
+    // }
 
     .hamburger-menu {
         display: flex;
