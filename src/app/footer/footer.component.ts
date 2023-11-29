@@ -20,17 +20,17 @@ export class FooterComponent {
   socialMediaList = [
     {
       name: 'gitHub',
-      imgSource: '../../assets/img/socials/gitHub.png', 
+      imgSource: './assets/img/socials/gitHub.png', 
       url: 'https://github.com/milakauz',
     },
     {
       name: 'mail',
-      imgSource: '../../assets/img/socials/mail.png', 
+      imgSource: './assets/img/socials/mail.png', 
       url: 'karlinselina@gmail.com',
     },
     {
       name: 'linkedIn',
-      imgSource: '../../assets/img/socials/linkedIn.png', 
+      imgSource: './assets/img/socials/linkedIn.png', 
       url: 'https://www.linkedin.com/in/selinakarlin/',
     }
   ]
