@@ -5,23 +5,24 @@
         </a>
 
         <div (click)="toggleMenu()" class="hamburger-menu">
-            <span [class.active]="isActivated" class="line top-bun"></span>
+            <img [src]="isActivated ? '/assets/img/burgerMenuActivated.svg' : '/assets/img/burgerMenu_normal.svg'">
+            <!-- <span [class.active]="isActivated" class="line top-bun"></span>
             <span [class.active]="isActivated" class="line patty"></span>
-            <span [class.active]="isActivated" class="line bottom-bun"></span>
+            <span [class.active]="isActivated" class="line bottom-bun"></span> -->
         </div>
 
     </nav>
 </header>
 <div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''"
     class="show-menu-links d-none p-0-25">
-    <div class="link-wrapper" [class.animated]="linkAnimationActive">
-        <a (click)="clickControl('aboutMe')">About me</a>
+    <div class="link-wrapper" [class.animated]="animationStatus['aboutMe']">
+        <a #aboutMeLink (click)="clickControl('aboutMe')">About me</a>
     </div>
-    <div class="link-wrapper" [class.animated]="linkAnimationActive">
-        <a (click)="clickControl('skillsSection')">My skills</a>
+    <div class="link-wrapper" [class.animated]="animationStatus['skillsSection']">
+        <a #skillsSectionLink (click)="clickControl('skillsSection')">My skills</a>
     </div>
-    <div class="link-wrapper" [class.animated]="linkAnimationActive">
-        <a (click)="clickControl('portfolioSection')">Portfolio</a>
+    <div class="link-wrapper" [class.animated]="animationStatus['portfolioSection']">
+        <a #portfolioSectionLink (click)="clickControl('portfolioSection')">Portfolio</a>
     </div>
 
     <div class="navigation-footer">

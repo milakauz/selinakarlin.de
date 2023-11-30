@@ -103,7 +103,7 @@ nav {
         }
 
         &.animated::after {
-            animation: animateLinke 1.5s forwards, animateDown 1.5s;
+            animation: animateLinke 1.5s forwards, animateDown 1.5s forwards;
         }
 
         @keyframes animateDown {

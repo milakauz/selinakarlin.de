@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
 import { Router } from '@angular/router';
 
@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isActivated = false;
-  linkAnimationActive: boolean = false;
-  links = document.getElementById('menuLinks');
-
   constructor(public router: Router, private viewportScroller: ViewportScroller) { }
+  isActivated = false;
+  animationStatus: { [key: string]: boolean } = {
+    aboutMe: false,
+    skillsSection: false,
+    portfolioSection: false
+  }
 
   ngOnInit() {
   }
@@ -22,17 +24,24 @@ export class HeaderComponent implements OnInit {
   }
 
   clickControl(id: string) {
-    this.linkAnimationActive = true;
-    setTimeout(() => {
-      this.toggleMenu();
-    }, 1200);
-
     setTimeout(() => {
       this.router.navigate(['/']).then(() => {
         this.scrollToSection(id);
+        this.toggleMenu();
+
       })
-      this.linkAnimationActive = false;
     }, 1500);
+
+    Object.keys(this.animationStatus).forEach(key => {
+      this.animationStatus[key] = false;
+    })
+
+    if (this.animationStatus.hasOwnProperty(id)) {
+      this.animationStatus[id] = true;
+      setTimeout(() => {
+        this.animationStatus[id] = false;
+      }, 2000);
+    }
   }
 
   scrollToSection(id: string) {
