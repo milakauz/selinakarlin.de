@@ -43,10 +43,10 @@ p {
     }
 
     .about-arrow {
-        width: 50%;
+        // width: 50%;s
         position: absolute;
         bottom: 0;
-        left: 20%;
+        left: 25%;
     }
 }
 
@@ -55,10 +55,14 @@ p {
         width: 60%;
     }
 
+    .about-me{
+        padding-bottom: 249px;
+    }
+
     .about-arrow {
         position: absolute;
-        bottom: 16%;
-        left: 50%;
+        bottom: 8%;
+        left: 30%;
     }
 
 }
