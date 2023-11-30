@@ -79,6 +79,7 @@ export class ContactMeComponent implements AfterViewInit {
         this.clearInput();
         this.sendSucces();
         this.stopPlayingAnimation();
+        this.toggleCheckboxPolicy();
       } else {
         console.error('E-Mail konnte nicht gesendet werden!');
         // Fehlermeldung inkl. Email noch einbinden! :)
@@ -140,5 +141,10 @@ export class ContactMeComponent implements AfterViewInit {
   isFieldValid(fieldName: string) {
     let input = this.contactForm.get(fieldName);
     return input?.invalid && input?.touched;
+  }
+
+  toggleCheckboxPolicy(){
+    let privacyControl = this.contactForm.get('privacyPolicy')?.value;
+      this.contactForm.get('privacyPolicy')?.setValue(!privacyControl);
   }
 }

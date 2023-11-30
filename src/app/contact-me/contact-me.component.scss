@@ -144,47 +144,25 @@ form {
     margin-top: 16px;
     background-color: $black;
     color: $beige;
-    align-items: flex-start;
     gap: 8px;
     flex-direction: row-reverse;
-    cursor: pointer;
+
+    img {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
     input[type="checkbox"] {
-        display: grid;
-        place-content: center;
+        display: none;
     }
-
-    input[type="checkbox"]::before {
-        content: "";
-        width: 0.65em;
-        height: 0.65em;
-        transform: scale(0);
-        transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em #00BC8F;
-    }
-
-    input[type="checkbox"]:checked::before {
-        transform: scale(1.2);
-    }
-
-    &:hover a {
-        font-weight: bold;
-
-        input {
-            background-color: #00BC8F;
-        }
-
-    }
-
 
     a {
         background-color: #000000;
         color: #00BC8F;
-        transition: transform 3s; //klappt nicht
 
         &:hover {
             font-weight: bold;
-            transform: scale(1.2);
         }
     }
 
