@@ -1,11 +1,19 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Renderer2, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray, Validators, FormBuilder } from "@angular/forms";
 @Component({
   selector: 'app-contact-me',
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss']
 })
-export class ContactMeComponent {
+export class ContactMeComponent implements AfterViewInit {
+
+  ngAfterViewInit(): void {
+    this.nameField = this.nameInput.nativeElement;
+    this.emailField = this.emailInput.nativeElement;
+    this.messageField = this.messageInput.nativeElement;
+    this.sendBtn = this.sendButton.nativeElement;
+  }
+
   @ViewChild('myForm') myForm!: ElementRef;
   @ViewChild('nameInput') nameInput!: ElementRef;
   @ViewChild('emailInput') emailInput!: ElementRef;
@@ -25,81 +33,77 @@ export class ContactMeComponent {
   checkBoxError: boolean = false;
   formIsCorrect: boolean = false;
   messageSucceed: boolean = false;
+  sendingAnimation: boolean = false;
 
-  ngOnInit() {
-  }
+  nameField!: { value: string | Blob; disabled: boolean; };
+  emailField!: { value: string | Blob; disabled: boolean; };
+  messageField!: { value: string | Blob; disabled: boolean; };
+  sendBtn!: { disabled: boolean; };
 
   async sendMail() {
     this.checkForm();
     if (this.formIsCorrect === true) {
-      // console.log('Sending Mail!');
-      // this.disableFormElements();
-      // this.getData();
-      let nameField = this.nameInput.nativeElement;
-      let emailField = this.emailInput.nativeElement;
-      let messageField = this.messageInput.nativeElement;
-      let sendButton = this.sendButton.nativeElement;
-      nameField.disabled = true;
-      emailField.disabled = true;
-      messageField.disabled = true;
-      sendButton.disabled = true;
-      // sending animation
-      const formData = new FormData();
-      formData.append('name', nameField.value);
-      formData.append('email', emailField.value);
-      formData.append('message', messageField.value);
+      this.playSendingAnimation();
+      this.disablingInputFields();
 
-      try {
-        const response = await fetch('http://selina-karlin.developerakademie.net/send_mail.php',
-          {
-            method: 'POST',
-            body: formData
-          });
-          if(response.ok){
-            this.clearInput();
-            this.sendSucces();
-          } else{
-            console.error('E-Mail konnte nicht gesendet werden!');
-            // Fehlermeldung inkl. Email noch einbinden! :)
-          }
-      } catch (error) {
-        console.error('Error occured while sendig mail:', error)
-      }
-
-
+      const formData = this.getFormData();
+      setTimeout(() => {
+        this.sendData(formData);
+      }, 3000);
     }
   }
 
-  // disableFormElements(){
-  //   let nameField = this.nameInput.nativeElement;
-  //   let emailField = this.emailInput.nativeElement;
-  //   let messageField = this.messageInput.nativeElement;
-  //   let sendButton = this.sendButton.nativeElement;
-  //   nameField.disabled = true;
-  //   emailField.disabled = true;
-  //   messageField.disabled = true;
-  //   sendButton.disabled = true;
+  getFormData() {
+    const formData = new FormData();
+    formData.append('name', this.nameField.value);
+    formData.append('email', this.emailField.value);
+    formData.append('message', this.messageField.value);
 
-  // }
+    return formData;
+  }
 
-  // getData(){
-  //   const formData = new FormData();
-  //   formData.append('name', this.contactForm.value.name as string);
-  //   formData.append('email', this.contactForm.value.email as string);
-  //   formData.append('message', this.contactForm.value.message as string);
-  //   console.log(formData);
+  disablingInputFields() {
+    this.nameField.disabled = true;
+    this.emailField.disabled = true;
+    this.messageField.disabled = true;
+    this.sendBtn.disabled = true;
+  }
 
-  //   // this.sendData(formData);
-  // }
+  async sendData(formData: FormData) {
+    try {
+      const response = await fetch('https://selinakarlin.de/send_mail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        this.clearInput();
+        this.sendSucces();
+        this.stopPlayingAnimation();
+      } else {
+        console.error('E-Mail konnte nicht gesendet werden!');
+        // Fehlermeldung inkl. Email noch einbinden! :)
+      }
+    } catch (error) {
+      console.error('Error occured while sendig mail:', error)
+    }
+
+
+  }
 
   clearInput() {
     this.contactForm.reset();
-    
+  }
+
+  clearErrors() {
+    this.emailError = false;
+    this.nameError = false
+    this.messageError = false
+    this.checkBoxError = false
   }
 
   sendSucces() {
     this.messageSucceed = true;
-    console.log(this.messageSucceed);
+    this.sendingAnimation = false;
   }
 
   checkForm() {
@@ -112,12 +116,25 @@ export class ContactMeComponent {
     if (this.contactForm.get('message')?.invalid) {
       this.messageError = true;
     }
-    if (this.contactForm.get('message')?.invalid) {
+    if (this.contactForm.get('privacyPolicy')?.invalid) {
       this.checkBoxError = true;
     }
-    if (this.contactForm.get('email')?.valid && this.contactForm.get('name')?.valid && this.contactForm.get('message')?.valid && this.contactForm.get('message')?.valid) {
+    if (this.contactForm.get('email')?.valid && this.contactForm.get('name')?.valid && this.contactForm.get('message')?.valid && this.contactForm.get('privacyPolicy')?.valid) {
       this.formIsCorrect = true;
+      this.clearErrors()
     }
+  }
+
+  playSendingAnimation() {
+    this.sendingAnimation = true;
+    const btn = this.sendButton.nativeElement;
+    btn.classList.add('loading');
+  }
+
+  stopPlayingAnimation() {
+    const btn = this.sendButton.nativeElement;
+    btn.classList.remove('loading');
+    btn.classList.add('finished');
   }
 
   isFieldValid(fieldName: string) {

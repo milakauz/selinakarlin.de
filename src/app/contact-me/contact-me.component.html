@@ -1,33 +1,31 @@
 <div class="padding-custom contact-form d-flex justify-center">
     <h1 class="cutom-background">Say hi!</h1>
-    <div class=" cutom-background d-flex form-content">
+    <div class="cutom-background d-flex form-content">
         <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
         <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
 
         <form [formGroup]="contactForm" #myForm (submit)="sendMail()" class="cutom-background">
 
             <div class="form-element cutom-background d-flex justify-center">
-                <label class="cutom-background" for="name" [class.d-none]="nameError">Your name</label>
                 <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
-                    [class.error]="isFieldValid('name') || nameError" required>
+                    placeholder="Your name" [class.error]="isFieldValid('name') || nameError" required>
                 <small class="text-error" *ngIf="nameError">
                     Please enter your name.
                 </small>
             </div>
 
             <div class="form-element cutom-background d-flex justify-center">
-                <label class="cutom-background" for="email" [class.d-none]="emailError">Your email</label>
                 <input class="cutom-background" #emailInput id="email" type="email" formControlName="email"
-                    [class.error]="isFieldValid('email') || emailError" required>
+                    placeholder="Your email" [class.error]="isFieldValid('email') || emailError" required>
                 <small class="text-error" *ngIf="emailError">
                     Please enter your email.
                 </small>
             </div>
 
             <div class="form-element cutom-background d-flex justify-center">
-                <label class="cutom-background" for="message" [class.d-none]="messageError">Your message</label>
                 <textarea class="cutom-background message-input" #messageInput id="message" type="text"
-                    formControlName="message" [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
+                    placeholder="Your message" formControlName="message" [disabled]="messageSucceed"
+                    [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
                 <small class="text-error" *ngIf="messageError">
                     Please enter a small message.
                 </small>
@@ -44,14 +42,12 @@
                 Please accept the privacy policy.
             </small>
 
-            <div class="form-button d-flex justify-center">
-                <button (click)="checkForm()" class="cutom-background" type="submit" #sendButton>
-                    <!-- [disabled]="!contactForm.valid" -->
-                    Send message:&#41;
+            <div class="form-button d-flex justify-center align-center">
+
+                <button type="submit" #sendButton>
+                    <ng-container *ngIf="!sendingAnimation && !messageSucceed">Send message :&#41;</ng-container>
                 </button>
             </div>
-
-            <span *ngIf="messageSucceed" style="margin-top: 16px;">Message sent! <br> Thanks :&#41;</span>
         </form>
     </div>
 </div>
