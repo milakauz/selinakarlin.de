@@ -145,6 +145,6 @@ export class ContactMeComponent implements AfterViewInit {
 
   toggleCheckboxPolicy(){
     let privacyControl = this.contactForm.get('privacyPolicy')?.value;
-      this.contactForm.get('privacyPolicy')?.setValue(!privacyControl);
+    this.contactForm.get('privacyPolicy')?.setValue(!privacyControl);
   }
 }

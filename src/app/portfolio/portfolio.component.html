@@ -22,7 +22,7 @@
         </div>
         <div class="portfolio-button d-flex" [ngStyle]="{'align-items': i % 2 === 0 ? 'flex-end' : 'flex-start'}">
             <button class="bg-transparent" (click)="redirectTo(project.linkGithub)">Github</button>
-            <button class="bg-transparent">Live Test</button>
+            <button class="bg-transparent" (click)="redirectTo(project.linkLive)">Live Test</button>
         </div>
     </div>
 </div>

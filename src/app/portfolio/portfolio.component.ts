@@ -24,7 +24,7 @@ export class PortfolioComponent implements OnInit {
       techStack: 'CSS | HTML | JavaScript',
       description: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and bottles to fight the endboss.',
       linkGithub: 'https://github.com/milakauz/elPolloLoco',
-      // linkLive:'',
+      linkLive: 'https://www.elpolloloco.selinakarlin.de/index.html',
     },
     {
       url: './assets/img/portfolio/join.png',
@@ -32,7 +32,7 @@ export class PortfolioComponent implements OnInit {
       techStack: 'CSS | HTML | JavaScript',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       linkGithub: 'https://github.com/milakauz/Join',
-      // linkLive:''
+      linkLive: 'https://www.join.selinakarlin.de/index.html'
     }
   ]
 }

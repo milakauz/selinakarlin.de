@@ -36,7 +36,8 @@
                     <a routerLink="/privacy-policy" class="privacy">privacy policy</a>
                     and agree to the processing of my data as outlined.
                 </span>
-                <img [src]="contactForm.get('privacyPolicy')?.value ? '/assets/img/checked_box.svg' : '/assets/img/unchecked_box.svg'" (click)="toggleCheckboxPolicy()" class="bg-transparent">
+                <img [src]="contactForm.get('privacyPolicy')?.value ? '/assets/img/checked_box.svg' : '/assets/img/unchecked_box.svg'" 
+                (click)="toggleCheckboxPolicy()" class="bg-transparent" [ngClass]="{'d-none': messageSucceed}">
                 <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
             </label>
             <small class="text-error" *ngIf="checkBoxError">

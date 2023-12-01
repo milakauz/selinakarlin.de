@@ -31,29 +31,6 @@
         }
     }
 
-    button {
-        margin-top: 32px;
-        margin-bottom: 24px;
-        height: 60px;
-
-        border: 4px solid #000000;
-        width: 200px;
-        transition-duration: 0.5s;
-        z-index: 1;
-
-        a {
-            font-size: 1.2em;
-            text-decoration: none;
-            color: #000000;
-            width: 100%;
-            height: 100%;
-        }
-
-        &:hover {
-            transform: scale(1.1);
-            font-weight: bold;
-        }
-    }
 
     .atf-bottom {
         position: relative;
@@ -71,6 +48,7 @@
         &:hover {
             color: #00BC8F;
         }
+
         // position: absolute;
         // left: -76px;
         // bottom: 156px;
@@ -85,6 +63,10 @@
         bottom: 0;
         display: flex;
         align-items: center;
+
+        .imperative{
+            overflow-y: hidden;
+        }
 
         img {
             height: 150px;
@@ -110,6 +92,12 @@
 
 }
 
+@media only screen and (min-width: 768px) {
+    button {
+        display: none;
+    }
+}
+
 @media only screen and (min-width: 1400px) {
     .divider {
         width: 24rem !important;
@@ -121,8 +109,6 @@
     }
 
     .atf-bottom {
-        // height: 256px !important;
-
         .scroll-down {
             justify-content: end !important;
         }

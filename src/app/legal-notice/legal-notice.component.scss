@@ -9,8 +9,7 @@ p {
     text-align: center;
 }
 
-@media screen and (min-width: 1400px) {
-    .legal-wrapper{
-        margin-top: 123px;
-    }
+h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }

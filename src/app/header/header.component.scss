@@ -160,11 +160,12 @@ nav {
     bottom: 0;
     display: flex;
     align-items: normal;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     h1 {
         color: rgba(240, 219, 199, 1);
-    }
+        margin-block-end: 0;
+        }
 
     .links-to-contact {
         display: flex;
@@ -215,11 +216,11 @@ nav {
     }
 }
 
-@media only screen and (min-width: 1400px) {
-    .navigation-footer{
-        height: 350px;
-    }
-}
+// @media only screen and (min-width: 1400px) {
+//     .navigation-footer{
+//         height: 350px;
+//     }
+// }
 // for E-Readers 
 @media screen and (min-width: 799px) and (min-height: 1200px) {
     .navigation-footer{
