@@ -35,7 +35,6 @@
     .atf-bottom {
         position: relative;
         width: 100%;
-        // border: 1px solid black;
         height: 172px;
         display: flex;
         justify-content: space-between;
@@ -48,17 +47,11 @@
         &:hover {
             color: #00BC8F;
         }
-
-        // position: absolute;
-        // left: -76px;
-        // bottom: 156px;
     }
 
     .scroll-down {
         flex-direction: column;
-        // gap: 1rem;
         width: 50px;
-        // position: absolute;
         right: 0;
         bottom: 0;
         display: flex;

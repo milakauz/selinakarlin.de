@@ -82,7 +82,6 @@ export class ContactMeComponent implements AfterViewInit {
         this.toggleCheckboxPolicy();
       } else {
         console.error('E-Mail konnte nicht gesendet werden!');
-        // Fehlermeldung inkl. Email noch einbinden! :)
       }
     } catch (error) {
       console.error('Error occured while sendig mail:', error)

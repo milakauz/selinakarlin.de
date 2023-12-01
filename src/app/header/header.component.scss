@@ -46,26 +46,6 @@ nav {
         &:hover {
             cursor: pointer;
         }
-
-        span {
-            height: $menu-line-height;
-            width: 20px;
-            background-color: #000000;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-
-            &.top-bun.active {
-                transform: translateY($menu-line-height + $menu-gap) rotate(45deg);
-            }
-
-            &.patty.active {
-                opacity: 0;
-            }
-
-            &.bottom-bun.active {
-                transform: translateY(-$menu-line-height - $menu-gap) rotate(-45deg);
-                background-color: red;
-            }
-        }
     }
 
 }
@@ -210,17 +190,6 @@ nav {
     }
 }
 
-@media only screen and (min-width: 1000px) {
-    .navigation-footer{
-        height: 300px;
-    }
-}
-
-// @media only screen and (min-width: 1400px) {
-//     .navigation-footer{
-//         height: 350px;
-//     }
-// }
 // for E-Readers 
 @media screen and (min-width: 799px) and (min-height: 1200px) {
     .navigation-footer{
