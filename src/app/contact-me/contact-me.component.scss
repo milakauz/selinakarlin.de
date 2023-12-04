@@ -67,10 +67,10 @@ form {
 
         &:focus-within ::placeholder {
             position: absolute;
-
-            top: -8px;
+            top: -1px;
             font-weight: bold;
             z-index: 999;
+
         }
 
         ::placeholder {
@@ -160,13 +160,9 @@ form {
     a {
         background-color: #000000;
         color: #00BC8F;
-
-        &:hover {
-            font-weight: bold;
-        }
     }
 
-    span{
+    span {
         text-align: unset;
     }
 
@@ -192,6 +188,7 @@ form {
         color: $beige;
         outline: none;
         letter-spacing: 1px;
+        overflow: hidden;
 
         &:after {
             content: '';
