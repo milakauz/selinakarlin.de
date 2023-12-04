@@ -7,10 +7,10 @@
 <div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container margin-custom"
     [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}" [class.row-reverse]="i % 2 !== 0"> 
     <div class="project-image">
-        <img src="{{ project.url }}" data-aos="colour" data-aos-duration="3000">
-        <div class="frame bg-transparent" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="1500"></div>
+        <img src="{{ project.url }}" data-aos="colour" data-aos-duration="250">
+        <div class="frame bg-transparent" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="250"></div>
     </div>
-    <div class="pf-info" data-aos-duration="3000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
+    <div class="pf-info" data-aos-duration="250" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
         [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
         <div class="pf-text" [class.text-left]="i % 2 !== 0">
             <h3 class="project-name">{{ project.name }}</h3>
