@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public router: Router, private viewportScroller: ViewportScroller) { }
+  constructor(public router: Router, private viewportScroller: ViewportScroller, public translate: TranslateService) { }
   isActivated = false;
 
   toggleMenu() {

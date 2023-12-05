@@ -1,15 +1,15 @@
 <div id="contactMe" class="padding-custom contact-form d-flex justify-center">
-    <h1 class="cutom-background">Say hi!</h1>
+    <h1 translate class="cutom-background">Say hi!</h1>
     <div class="cutom-background d-flex form-content">
-        <h6 class="cutom-background text-center">Want to discuss a new project?</h6>
-        <span class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
+        <h6 translate class="cutom-background text-center">Want to discuss a new project?</h6>
+        <span translate class="cutom-background text-center">Say hello! Let's discuss your ideas and make it happen.</span>
 
         <form [formGroup]="contactForm" #myForm (submit)="sendMail()" class="cutom-background">
 
             <div class="form-element cutom-background d-flex justify-center">
                 <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
                     placeholder="Your name" [class.error]="isFieldValid('name') || nameError" required>
-                <small class="text-error" *ngIf="nameError">
+                <small translate class="text-error" *ngIf="nameError">
                     Please enter your name.
                 </small>
             </div>
@@ -32,8 +32,8 @@
             </div>
 
             <label for="privacyPolicy" class="privacy-container d-flex">
-                <span>I've read the
-                    <a routerLink="/privacy-policy" class="privacy">privacy policy</a>
+                <span translate>I've read the
+                    <a translate routerLink="/privacy-policy" class="privacy">privacy policy</a>
                     and agree to the processing of my data as outlined.
                 </span>
                 <img [src]="contactForm.get('privacyPolicy')?.value ? '/assets/img/checked_box.svg' : '/assets/img/unchecked_box.svg'" 
@@ -46,7 +46,7 @@
 
             <div class="form-button d-flex justify-center align-center">
                 <button type="submit" #sendButton>
-                    <ng-container *ngIf="!sendingAnimation && !messageSucceed">Send message :&#41;</ng-container>
+                    <ng-container *ngIf="!sendingAnimation && !messageSucceed"><span translate>Send message</span> :&#41;</ng-container>
                 </button>
             </div>
         </form>

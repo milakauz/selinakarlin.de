@@ -4,6 +4,11 @@
             <img class="logo" src="./assets/img/logo/sk_dark_black_logo_transparentBG.svg">
         </a>
 
+        <div>
+            <a class="language-links" (click)="translate.use('de')">DE</a> |
+            <a class="language-links" (click)="translate.use('en')">EN</a>
+        </div>
+
         <div (click)="toggleMenu()" class="hamburger-menu">
             <img [src]="isActivated ? './assets/img/burgerMenuActivated.svg' : './assets/img/burgerMenu_normal.svg'">
         </div>
@@ -13,10 +18,10 @@
 <div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''"
     class="show-menu-links d-none p-0-25">
     <div class="link-wrapper">
-        <a (click)="scrollToSection('aboutMe')">About me</a>
+        <a (click)="scrollToSection('aboutMe')" translate>About me</a>
     </div>
     <div class="link-wrapper">
-        <a (click)="scrollToSection('skillsSection')">My skills</a>
+        <a (click)="scrollToSection('skillsSection')" translate>My skills</a>
     </div>
     <div class="link-wrapper">
         <a (click)="scrollToSection('portfolioSection')">Portfolio</a>
@@ -24,7 +29,7 @@
 
     <div class="navigation-footer">
         <div class="footer-content bg-transparent margin-custom">
-            <h1 class="bg-transparent">Say Hi!</h1>
+            <h1 class="bg-transparent" translate>Say hi!</h1>
             <div class="links-to-contact bg-transparent">
                 <div class="mail bg-transparent">
                     <a href="mailto:karlinselina@gmail.com" class="bg-transparent">karlinselina@gmail.com</a>

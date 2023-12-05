@@ -1,7 +1,7 @@
 <div id="portfolioSection" class="margin-custom portfolio-head">
     <div class="pf-head-wrapper">
         <h1>Portfolio</h1>
-        <p>This page is a sample of my work - please feel free to try them out.</p>
+        <p translate>This page is a sample of my work - please feel free to try them out.</p>
     </div>
 </div>
 <div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container margin-custom"
@@ -15,7 +15,7 @@
         <div class="pf-text" [class.text-left]="i % 2 !== 0">
             <h3 class="project-name">{{ project.name }}</h3>
             <h6> {{ project.techStack }} </h6>
-            <p class="description">
+            <p translate class="description">
                 {{ project.description }}
             </p>
         </div>

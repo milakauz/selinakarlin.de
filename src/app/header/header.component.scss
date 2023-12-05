@@ -48,6 +48,13 @@ nav {
 
 }
 
+.language-links {
+    &:hover {
+        color: #00bc8f;
+        font-weight: bold;
+    }
+}
+
 .show-menu-links {
     font-family: Syne !important;
     justify-content: center;
@@ -96,10 +103,11 @@ nav {
     align-items: normal;
     justify-content: flex-end;
     flex-direction: column;
+
     h1 {
         color: rgba(240, 219, 199, 1);
         margin-block-end: 0;
-        }
+    }
 
     .links-to-contact {
         display: flex;
@@ -146,7 +154,7 @@ nav {
 
 // for E-Readers 
 @media screen and (min-width: 799px) and (min-height: 1200px) {
-    .navigation-footer{
+    .navigation-footer {
         height: 300px;
     }
 }
