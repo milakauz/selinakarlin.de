@@ -10,6 +10,12 @@ import { Router } from '@angular/router';
 export class AboutMeComponent {
   constructor(private router: Router, private viewportScroller: ViewportScroller){}
 
+  
+  /**
+   * Scrolls to the anchor with the specified id-
+   *
+   * @param {string} id
+   */
   scrollToSection(id: string) {
     this.viewportScroller.scrollToAnchor(id);
   }
