@@ -7,6 +7,11 @@ import { FormControl, FormGroup, FormArray, Validators, FormBuilder } from "@ang
 })
 export class ContactMeComponent implements AfterViewInit {
 
+
+
+  /**
+   * Assigns native element references to the HTML-elements, so they can be used or manipulated later.
+   */
   ngAfterViewInit(): void {
     this.nameField = this.nameInput.nativeElement;
     this.emailField = this.emailInput.nativeElement;
@@ -27,32 +32,54 @@ export class ContactMeComponent implements AfterViewInit {
     privacyPolicy: new FormControl(false, Validators.requiredTrue)
   });
 
+  // if data from form can not be sent, it'll show a textfield with instructions for user
+  showErrorMessage = false;
+
+  // if form is invalid, it'll point to user the invalid fields 
   nameError: boolean = false;
   emailError: boolean = false;
   messageError: boolean = false;
   checkBoxError: boolean = false;
+  
   formIsCorrect: boolean = false;
+  
+  // boolean for sending animations
   messageSucceed: boolean = false;
   sendingAnimation: boolean = false;
 
+  // references to DOM for en-/disabling input/button
   nameField!: { value: string | Blob; disabled: boolean; };
   emailField!: { value: string | Blob; disabled: boolean; };
   messageField!: { value: string | Blob; disabled: boolean; };
   sendBtn!: { disabled: boolean; };
 
+
+  /**
+   * Checks if the form is filled correctly. If true: calls other functions for animation and sending data.
+   * @async
+   * @returns {*}
+   */
   async sendMail() {
     this.checkForm();
-    if (this.formIsCorrect === true) {
-      this.playSendingAnimation();
-      this.disablingInputFields();
-
-      const formData = this.getFormData();
-      setTimeout(() => {
-        this.sendData(formData);
-      }, 3000);
+    if (this.formIsCorrect === false) {
+      return;
     }
+
+    this.playSendingAnimation();
+    this.disablingInputFields();
+
+    const formData = this.getFormData();
+    setTimeout(() => {
+      this.sendData(formData);
+    }, 3000);
   }
 
+
+  /**
+   * Creates an instance of FormData which will be returned at the end of the function.
+   * Appends key-value pairs to it which contain the values of the form.
+   * @returns {*}
+   */
   getFormData() {
     const formData = new FormData();
     formData.append('name', this.nameField.value);
@@ -62,6 +89,10 @@ export class ContactMeComponent implements AfterViewInit {
     return formData;
   }
 
+
+  /**
+   * Disables the form elements to prevent interaction with user while data is being processed.
+   */
   disablingInputFields() {
     this.nameField.disabled = true;
     this.emailField.disabled = true;
@@ -69,6 +100,14 @@ export class ContactMeComponent implements AfterViewInit {
     this.sendBtn.disabled = true;
   }
 
+
+  /**
+   * Sends a POST request with the provided FormData as the request body.
+   * If the response is successful (status code 200) it calls several functions to handle the consequences like stopping animations/clearing inputs. 
+   * @async
+   * @param {FormData} formData
+   * @returns {*}
+   */
   async sendData(formData: FormData) {
     try {
       const response = await fetch('https://selinakarlin.de/send_mail.php', {
@@ -81,19 +120,26 @@ export class ContactMeComponent implements AfterViewInit {
         this.stopPlayingAnimation();
         this.toggleCheckboxPolicy();
       } else {
-        console.error('E-Mail konnte nicht gesendet werden!');
+        this.addErrorToButton();
+        this.showErrorMessage = true;
       }
     } catch (error) {
       console.error('Error occured while sendig mail:', error)
     }
-
-
   }
 
+  
+  /**
+   * Resets form
+   */
   clearInput() {
     this.contactForm.reset();
   }
 
+
+  /**
+   * Resets error flags.
+   */
   clearErrors() {
     this.emailError = false;
     this.nameError = false
@@ -101,11 +147,30 @@ export class ContactMeComponent implements AfterViewInit {
     this.checkBoxError = false
   }
 
+  
+  /**
+   * Sets boolean according to fulfilled response from server.
+   */
   sendSucces() {
     this.messageSucceed = true;
     this.sendingAnimation = false;
   }
 
+  
+  /**
+   * Adds class to button that shows user error, if response from server is not fulfilled.
+   */
+  addErrorToButton() {
+    const btn = this.sendButton.nativeElement;
+    btn.classList.add('buggy');
+  }
+
+  
+  /**
+   * Checks all formfields according to validity to show error messages for user instructions.
+   * If all formfields are valid, it sets boolean (formIsCorrect) to true and clears errors. 
+   * @date 12/5/2023 - 7:19:18 PM
+   */
   checkForm() {
     if (this.contactForm.get('email')?.invalid) {
       this.emailError = true;
@@ -125,24 +190,44 @@ export class ContactMeComponent implements AfterViewInit {
     }
   }
 
+  
+  /**
+   * Sets correspondent boolean to tru for the animation to be played.
+   * Adds classs to button to show loading status
+   */
   playSendingAnimation() {
     this.sendingAnimation = true;
     const btn = this.sendButton.nativeElement;
     btn.classList.add('loading');
   }
 
+  
+  /**
+   * Stops the animation of button and shows finished status of form sending.
+   */
   stopPlayingAnimation() {
     const btn = this.sendButton.nativeElement;
     btn.classList.remove('loading');
     btn.classList.add('finished');
   }
 
+  
+  /**
+   * Checks validity according to formControl of contactForm. 
+   * If control is invalid and has been touched it returns true otherwise false.
+   * @param {string} fieldName
+   * @returns {*}
+   */
   isFieldValid(fieldName: string) {
     let input = this.contactForm.get(fieldName);
     return input?.invalid && input?.touched;
   }
 
-  toggleCheckboxPolicy(){
+  
+  /**
+   * Toggles value of checkbox in contactForm by getting the value and setting it then to the opposite.
+   */
+  toggleCheckboxPolicy() {
     let privacyControl = this.contactForm.get('privacyPolicy')?.value;
     this.contactForm.get('privacyPolicy')?.setValue(!privacyControl);
   }
