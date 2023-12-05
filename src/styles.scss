@@ -80,6 +80,8 @@ a {
 
 button {
     font-family: Overpass;
+    overflow: hidden;
+
 
     &:hover {
         cursor: pointer;
