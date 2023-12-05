@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ViewportScroller } from "@angular/common";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-me',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent {
+  constructor(private router: Router, private viewportScroller: ViewportScroller){}
 
+  scrollToSection(id: string) {
+    this.viewportScroller.scrollToAnchor(id);
+  }
 }
