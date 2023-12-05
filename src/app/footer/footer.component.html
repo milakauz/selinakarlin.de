@@ -1,10 +1,10 @@
-<footer [ngClass]="{'footer-absolute': onPageLegalNotice}"> 
+<footer [ngClass]="{'footer-absolute': onPageLegalNotice}" class="d-flex flex-column align-center"> 
     
     <a href="#atf" class="scroll-wrapper bg-transparent">
         <img class="bg-transparent" src="./assets/img/arrows/scroll2top.png">
     </a>
 
-    <div class="socials-wrapper bg-transparent">
+    <div class="socials-wrapper bg-transparent d-flex">
         <a *ngFor="let item of socialMediaList" class="bg-transparent"
             [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
             [attr.target]="item.name !== 'mail' ? '_blank' : null">
@@ -12,7 +12,7 @@
         </a>
     </div>
 
-    <a class="logo-wrapper bg-transparent" href="https://www.selinakarlin.de/">
+    <a class="logo-wrapper bg-transparent d-flex align-center" href="https://www.selinakarlin.de/">
         <img class="bg-transparent" style="height: 64px;" src="./assets/img/logo/logo_colored.svg" alt="">
     </a>
 

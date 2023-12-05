@@ -14,7 +14,7 @@ $black: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(168,156,139, 0.7)
+    background-color: rgba(168, 156, 139, 0.7)
 }
 
 // @supports (scroll-margin-top: 0) {
@@ -125,6 +125,33 @@ button {
     margin: 0 25px;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.noverflow {
+    overflow: hidden;
+}
+
+.font-stretch {
+    font-stretch: ultra-expanded;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+// ################## Flexbox ######
+// ################## Design ######
+
 .flex-column {
     flex-direction: column;
 }
@@ -150,13 +177,6 @@ button {
     align-items: center;
 }
 
-.w-100 {
-    width: 100%;
-}
-
-.font-stretch {
-    font-stretch: ultra-expanded;
-}
 
 @media only screen and (min-width: 768px) {
 

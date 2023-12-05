@@ -11,7 +11,6 @@ header {
     top: 0;
     right: 0;
     left: 0;
-    display: flex;
     background-color: rgba(240, 219, 199, 1);
 }
 
@@ -23,10 +22,7 @@ body {
 }
 
 nav {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
 
     img {
         height: 32px;
@@ -57,9 +53,6 @@ nav {
 
 .show-menu-links {
     font-family: Syne !important;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     gap: 3.5rem;
     position: fixed;
     z-index: 888;
@@ -72,7 +65,6 @@ nav {
     .link-wrapper {
         padding-left: 5%;
         padding-bottom: 2%;
-        position: relative;
 
         a {
             position: relative;
@@ -99,10 +91,8 @@ nav {
     width: 100%;
     position: fixed;
     bottom: 0;
-    display: flex;
     align-items: normal;
     justify-content: flex-end;
-    flex-direction: column;
 
     h1 {
         color: rgba(240, 219, 199, 1);
@@ -128,7 +118,6 @@ nav {
         }
 
         .socials {
-            display: flex;
             justify-content: space-evenly;
             align-items: end;
             width: 160px;

@@ -1,5 +1,5 @@
 $green: #00BC8F;
-$beige: rgba(255, 252, 243);
+$beige: rgb(255, 252, 243);
 $black: #000000;
 $red: #BC002D;
 
@@ -16,7 +16,6 @@ $red: #BC002D;
 h1 {
     margin-top: 80px;
     color: $beige;
-    position: absolute;
     left: 25px;
     animation: colorChange 4s infinite ease-in-out;
 
@@ -165,22 +164,26 @@ form {
     span {
         text-align: unset;
     }
+}
 
+.buggy-form-error {
+    color: color-mix(in srgb, #BC002D 75%, rgb(255, 252, 243));
+
+    a {
+        padding-top: 8px;
+        color: $beige;
+        font-weight: bold;
+    }
 }
 
 .form-button {
     background-color: #000000;
     padding-top: 24px;
-    position: relative;
 
     button {
-        background: transparent;
         height: 48px;
         width: 250px;
         padding: 8px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         line-height: 60px;
         border: none;
         outline: none;
@@ -202,61 +205,85 @@ form {
 
         @keyframes bounce {
             from {
-                transform: translateY(0);
-                opacity: 0.6;
-            }
-
-            to {
-                transform: translateY(-10px);
-                opacity: 1;
-            }
+                transform: translateY(0
+                );
+            opacity: 0.6;
         }
 
-        &.loading {
-            width: 60px;
-            border-radius: 50%;
-            animation: bounce 0.25s infinite alternate;
-
-            &:after {
-                opacity: 1;
-            }
-        }
-
-        &.finished {
-            background-color: #00BC8F;
-            width: 120px;
-            border-radius: 10px;
-            color: $beige;
-
-            &:before {
-                font-size: 24px;
-                content: "✓";
-                opacity: 1;
-                transform: translateY(0px);
-                animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
-            }
-
-            &:after {
-                display: none;
-            }
-
-            &:hover {
-                cursor: not-allowed;
-            }
-        }
-    }
-
-    @keyframes dropDown {
-        0% {
-            transform: translateY(-15px);
-            opacity: 0;
-        }
-
-        100% {
-            transform: translateY(0px);
+        to {
+            transform: translateY(-10px);
             opacity: 1;
         }
     }
+
+    &.loading {
+        width: 60px;
+        border-radius: 50%;
+        animation: bounce 0.25s infinite alternate;
+
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    &.finished {
+        background-color: #00BC8F;
+        width: 120px;
+        border-radius: 10px;
+        color: $beige;
+
+        &:before {
+            font-size: 24px;
+            content: "✓";
+            opacity: 1;
+            transform: translateY(0px);
+            animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+        }
+
+        &:after {
+            display: none;
+        }
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &.buggy {
+        background-color: $red;
+        width: 120px;
+        border-radius: 10px;
+        color: $beige;
+
+        &:before {
+            font-size: 24px;
+            content: "✖";
+            opacity: 1;
+            transform: translateY(0px);
+            animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+        }
+
+        &:after {
+            display: none;
+        }
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+@keyframes dropDown {
+    0% {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
 }
 
 .message-confirm {

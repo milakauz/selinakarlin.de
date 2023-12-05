@@ -1,8 +1,4 @@
 .about-me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
     gap: 2%;
 }
 
@@ -18,11 +14,8 @@ p {
     height: 300px;
     width: 280px;
     margin-top: 32px;
-    display: flex;
-    position: relative;
 
     .frame-photo {
-        position: absolute;
         height: 265px;
         width: 240px;
         border: 4px solid black;

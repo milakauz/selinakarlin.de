@@ -22,7 +22,7 @@
                 </small>
             </div>
 
-            <div class="form-element cutom-background d-flex justify-center">
+            <div class="form-element cutom-background d-flex justify-center flex-column pos-relative">
                 <textarea class="cutom-background message-input" #messageInput id="message" type="text"
                     placeholder="Your message" formControlName="message" [disabled]="messageSucceed"
                     [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
@@ -45,9 +45,14 @@
             </small>
 
             <div class="form-button d-flex justify-center align-center">
-                <button type="submit" #sendButton>
+                <button type="submit" #sendButton class="d-flex align-center justify-center bg-transparent">
                     <ng-container *ngIf="!sendingAnimation && !messageSucceed"><span translate>Send message</span> :&#41;</ng-container>
                 </button>
+            </div>
+            <div class="buggy-form-error bg-transparent d-flex align-center flex-column " *ngIf="showErrorMessage">
+                Deine Nachricht konnte nicht gesendet werden! <br> 
+                Schicke mir gerne eine Email an:<br> 
+                <a class="bg-transparent" href="mailto:karlinselina@gmail.com">karlinselina&#64;gmail.com</a>
             </div>
         </form>
     </div>

@@ -1,5 +1,5 @@
-<header class="padding-custom">
-    <nav>
+<header class="padding-custom d-flex">
+    <nav class="d-flex align-center w-100">
         <a class="logo-wrapper" href="/">
             <img class="logo" src="./assets/img/logo/sk_dark_black_logo_transparentBG.svg">
         </a>
@@ -16,8 +16,9 @@
     </nav>
 </header>
 <div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''"
-    class="show-menu-links d-none p-0-25">
-    <div class="link-wrapper">
+    class="show-menu-links d-none p-0-25 justify-center flex-column align-center">
+
+    <div class="link-wrapper pos-relative">
         <a (click)="scrollToSection('aboutMe')" translate>About me</a>
     </div>
     <div class="link-wrapper">
@@ -27,14 +28,18 @@
         <a (click)="scrollToSection('portfolioSection')">Portfolio</a>
     </div>
 
-    <div class="navigation-footer">
+    <div class="navigation-footer d-flex flex-column">
+
         <div class="footer-content bg-transparent margin-custom">
+
             <h1 class="bg-transparent" translate>Say hi!</h1>
+
             <div class="links-to-contact bg-transparent">
+
                 <div class="mail bg-transparent">
                     <a href="mailto:karlinselina@gmail.com" class="bg-transparent">karlinselina@gmail.com</a>
                 </div>
-                <div class="socials bg-transparent">
+                <div class="socials bg-transparent d-flex">
                     <a class="bg-transparent" href="https://github.com/milakauz">
                         <img class="bg-transparent" src="./assets/img/socials/github-white.svg">
                     </a>
@@ -45,8 +50,10 @@
                         <img class="bg-transparent" src="./assets/img/socials/linkedIn.png" alt="">
                     </a>
                 </div>
+
             </div>
 
         </div>
+
     </div>
 </div>
