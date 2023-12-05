@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 
@@ -19,6 +19,18 @@ export class HeaderComponent {
 
   scrollToSection(id: string) {
     this.toggleMenu();
-    this.viewportScroller.scrollToAnchor(id);
+    const currentUrl = this.router.url.split('/')[1];
+    if (currentUrl !== '') {
+      this.router.navigate(['/']).then(() => {
+        this.viewportScroller.scrollToAnchor(id);
+      });
+    } else {
+      this.viewportScroller.scrollToAnchor(id);
+    }
   }
+
+  // scrollToSection(id: string) {
+  //   this.toggleMenu();
+  //   this.viewportScroller.scrollToAnchor(id);
+  // }
 }
