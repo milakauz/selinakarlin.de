@@ -19,13 +19,11 @@
     class="show-menu-links d-none p-0-25 justify-center flex-column align-center">
 
     <div class="link-wrapper pos-relative">
-        <a href="#aboutMe" (click)="toggleMenu()" translate>About me</a>
+        <a (click)="scrollToSection('aboutMe')" translate>About me</a>
     </div>
-    <!-- (click)="scrollToSection('aboutMe')" -->
     <div class="link-wrapper">
         <a (click)="scrollToSection('skillsSection')" translate>My skills</a>
     </div>
-    
     <div class="link-wrapper">
         <a (click)="scrollToSection('portfolioSection')">Portfolio</a>
     </div>
