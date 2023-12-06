@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, Event, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 
