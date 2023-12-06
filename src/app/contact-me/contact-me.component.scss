@@ -96,7 +96,6 @@ form {
             &:focus {
                 border: 2px solid $beige;
                 outline: none;
-                height: 32px;
             }
 
             &:disabled {
@@ -110,7 +109,6 @@ form {
         }
 
         textarea {
-            height: 20px;
             color: $beige;
             outline: none;
             border: none;
@@ -118,8 +116,11 @@ form {
             padding: 4%;
             resize: none;
 
+            &:placeholder-shown {
+                height: 20px;
+            }
+
             &:focus {
-                height: 200px;
                 border: 2px solid beige;
             }
 
@@ -205,85 +206,84 @@ form {
 
         @keyframes bounce {
             from {
-                transform: translateY(0
-                );
-            opacity: 0.6;
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+
+            to {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
         }
 
-        to {
-            transform: translateY(-10px);
-            opacity: 1;
+        &.loading {
+            width: 60px;
+            border-radius: 50%;
+            animation: bounce 0.25s infinite alternate;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        &.finished {
+            background-color: #00BC8F;
+            width: 120px;
+            border-radius: 10px;
+            color: $beige;
+
+            &:before {
+                font-size: 24px;
+                content: "✓";
+                opacity: 1;
+                transform: translateY(0px);
+                animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+            }
+
+            &:after {
+                display: none;
+            }
+
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
+
+        &.buggy {
+            background-color: $red;
+            width: 120px;
+            border-radius: 10px;
+            color: $beige;
+
+            &:before {
+                font-size: 24px;
+                content: "✖";
+                opacity: 1;
+                transform: translateY(0px);
+                animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+            }
+
+            &:after {
+                display: none;
+            }
+
+            &:hover {
+                cursor: not-allowed;
+            }
         }
     }
 
-    &.loading {
-        width: 60px;
-        border-radius: 50%;
-        animation: bounce 0.25s infinite alternate;
-
-        &:after {
-            opacity: 1;
+    @keyframes dropDown {
+        0% {
+            transform: translateY(-15px);
+            opacity: 0;
         }
-    }
 
-    &.finished {
-        background-color: #00BC8F;
-        width: 120px;
-        border-radius: 10px;
-        color: $beige;
-
-        &:before {
-            font-size: 24px;
-            content: "✓";
-            opacity: 1;
+        100% {
             transform: translateY(0px);
-            animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
-        }
-
-        &:after {
-            display: none;
-        }
-
-        &:hover {
-            cursor: not-allowed;
-        }
-    }
-
-    &.buggy {
-        background-color: $red;
-        width: 120px;
-        border-radius: 10px;
-        color: $beige;
-
-        &:before {
-            font-size: 24px;
-            content: "✖";
             opacity: 1;
-            transform: translateY(0px);
-            animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
-        }
-
-        &:after {
-            display: none;
-        }
-
-        &:hover {
-            cursor: not-allowed;
         }
     }
-}
-
-@keyframes dropDown {
-    0% {
-        transform: translateY(-15px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
 }
 
 .message-confirm {
@@ -325,5 +325,11 @@ form {
 
     .contact-form {
         margin-top: 220px;
+    }
+}
+
+@media only screen and (min-width: 1750px) {
+    .contact-form {
+        padding-top: 110px;
     }
 }
