@@ -64,7 +64,7 @@ export class ContactMeComponent implements AfterViewInit {
     if (this.formIsCorrect === false) {
       return;
     }
-
+    this.toggleCheckboxPolicy();
     this.playSendingAnimation();
     this.disablingInputFields();
 
@@ -118,7 +118,6 @@ export class ContactMeComponent implements AfterViewInit {
         this.clearInput();
         this.sendSucces();
         this.stopPlayingAnimation();
-        this.toggleCheckboxPolicy();
       } else {
         this.addErrorToButton();
         this.showErrorMessage = true;
