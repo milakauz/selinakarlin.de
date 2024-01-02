@@ -1,4 +1,4 @@
-<div id="contactMe" class="padding-custom contact-form d-flex justify-center">
+<div id="contactMe" class="padding-custom contact-form d-flex align-center flex-column">
     <h1 translate class="cutom-background">Say hi!</h1>
     <div class="cutom-background d-flex form-content">
         <h6 translate class="cutom-background text-center">Want to discuss a new project?</h6>
@@ -24,7 +24,7 @@
 
             <div class="form-element cutom-background d-flex justify-center flex-column pos-relative">
                 <textarea class="cutom-background message-input" #messageInput id="message" type="text"
-                    placeholder="Your message" formControlName="message" [disabled]="messageSucceed"
+                    placeholder="Your message" formControlName="message" [attr.disabled]="messageSucceed"
                     [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
                 <small class="text-error" *ngIf="messageError">
                     Please enter a small message.
