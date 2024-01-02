@@ -11,11 +11,23 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public router: Router, private viewportScroller: ViewportScroller, public translate: TranslateService) { }
+  language!: string;
   isActivated = false;
+  
+  constructor(public router: Router, private viewportScroller: ViewportScroller, public translate: TranslateService) { 
+    this.language = 'en';
+  }
 
   toggleMenu() {
     this.isActivated = !this.isActivated;
+  }
+
+  setGerman(){
+    this.language = 'de';
+  }
+
+  setEnglish() {
+    this.language = 'en';
   }
 
   scrollToSection(id: string) {

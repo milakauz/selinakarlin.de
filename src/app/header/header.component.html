@@ -5,8 +5,8 @@
         </a>
 
         <div>
-            <a class="language-links" (click)="translate.use('de')">DE</a> |
-            <a class="language-links" (click)="translate.use('en')">EN</a>
+            <a [ngClass]="this.language === 'de' ? 'green' : ''" class="language-links" (click)="translate.use('de'); setGerman()">DE</a> |
+            <a [ngClass]="this.language === 'en' ? 'green' : ''" class="language-links" (click)="translate.use('en'); setEnglish()">EN</a>
         </div>
 
         <div (click)="toggleMenu()" class="hamburger-menu">
