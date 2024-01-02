@@ -78,6 +78,7 @@ button {
 
     .pf-info {
         display: flex;
+        margin-top: 8px;
     }
 
     .portfolio-button {
@@ -108,6 +109,7 @@ button {
 
     .pf-info {
         flex-direction: column !important;
+        margin-top: unset;
     }
 
     .portfolio-button {
