@@ -150,6 +150,12 @@ button {
     font-weight: bold;
 }
 
+.hover {
+    &:hover{
+        cursor: pointer;
+    }
+}
+
 .d-none {
     display: none;
 }
