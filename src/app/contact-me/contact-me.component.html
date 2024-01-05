@@ -8,7 +8,7 @@
 
             <div class="form-element cutom-background d-flex justify-center">
                 <input class="cutom-background" #nameInput id="name" type="text" formControlName="name"
-                    placeholder="Your name" [class.error]="isFieldValid('name') || nameError" required>
+                placeholder="{{ 'Your name' | translate }}" [class.error]="isFieldValid('name') || nameError" required>
                 <small translate class="text-error" *ngIf="nameError">
                     Please enter your name.
                 </small>
@@ -16,7 +16,7 @@
 
             <div class="form-element cutom-background d-flex justify-center">
                 <input class="cutom-background" #emailInput id="email" type="email" formControlName="email"
-                    placeholder="Your email" [class.error]="isFieldValid('email') || emailError" required>
+                placeholder="{{ 'Your email' | translate }}" [class.error]="isFieldValid('email') || emailError" required>
                 <small class="text-error" *ngIf="emailError">
                     Please enter your email.
                 </small>
@@ -24,7 +24,7 @@
 
             <div class="form-element cutom-background d-flex justify-center flex-column pos-relative">
                 <textarea class="cutom-background message-input" #messageInput id="message" type="text"
-                    placeholder="Your message" formControlName="message" [attr.disabled]="messageSucceed"
+                placeholder="{{ 'Your message' | translate }}" formControlName="message" [attr.disabled]="messageSucceed"
                     [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
                 <small class="text-error" *ngIf="messageError">
                     Please enter a small message.
