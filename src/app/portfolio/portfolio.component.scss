@@ -31,14 +31,7 @@ button {
     width: 42%;
 
     &:hover {
-        animation: expand 0.5s forwards;
         font-weight: bold;
-    }
-
-    @keyframes expand {
-        to {
-            width: 50%;
-        }
     }
 }
 
