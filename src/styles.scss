@@ -17,13 +17,6 @@ $black: #000000;
     background-color: rgba(168, 156, 139, 0.7)
 }
 
-// @supports (scroll-margin-top: 0) {
-//     h1 {
-//       scroll-margin-top: 50px;
-//     }
-//   }
-
-
 body {
     margin: 0 auto;
 }
@@ -40,10 +33,6 @@ h1 {
     font-family: 'Syne';
     font-size: 32px;
     scroll-margin-top: 100px;
-
-    &:hover {
-        color: $green;
-    }
 }
 
 h3 {
