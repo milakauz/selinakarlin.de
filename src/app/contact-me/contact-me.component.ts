@@ -46,6 +46,7 @@ export class ContactMeComponent implements AfterViewInit {
   // boolean for sending animations
   messageSucceed: boolean = false;
   sendingAnimation: boolean = false;
+  showButtonBorder: boolean = true;
 
   // references to DOM for en-/disabling input/button
   nameField!: { value: string | Blob; disabled: boolean; };
@@ -64,9 +65,11 @@ export class ContactMeComponent implements AfterViewInit {
     if (this.formIsCorrect === false) {
       return;
     }
+    this.showButtonBorder = false;
     this.toggleCheckboxPolicy();
     this.playSendingAnimation();
     this.disablingInputFields();
+    
 
     const formData = this.getFormData();
     setTimeout(() => {

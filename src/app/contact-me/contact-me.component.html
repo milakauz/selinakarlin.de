@@ -45,9 +45,11 @@
             </small>
 
             <div class="form-button d-flex justify-center align-center">
-                <button type="submit" #sendButton class="d-flex align-center justify-center bg-transparent">
-                    <ng-container *ngIf="!sendingAnimation && !messageSucceed"><span translate>Send message</span> :&#41;</ng-container>
-                </button>
+                <div class="btn-wrapper bg-transparent">
+                    <button [ngClass]="{'no-border': !showButtonBorder}" type="submit" #sendButton class="d-flex align-center justify-center bg-transparent">
+                        <ng-container *ngIf="!sendingAnimation && !messageSucceed"><span translate>Send message</span> :&#41;</ng-container>
+                    </button>
+                </div>
             </div>
             <div class="buggy-form-error bg-transparent d-flex align-center flex-column " *ngIf="showErrorMessage">
                 Deine Nachricht konnte nicht gesendet werden! <br> 
