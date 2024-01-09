@@ -14,7 +14,7 @@
         [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
         <div class="pf-text" [class.text-left]="i % 2 !== 0">
             <h3 class="project-name">{{ project.name }}</h3>
-            <h6> {{ project.techStack }} </h6>
+            <p class="green"> {{ project.techStack }} </p>
             <p translate class="description">
                 {{ project.description }}
             </p>
