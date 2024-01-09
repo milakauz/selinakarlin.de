@@ -23,8 +23,8 @@
             </div>
 
             <div class="form-element cutom-background d-flex justify-center flex-column pos-relative">
-                <textarea class="cutom-background message-input" #messageInput id="message" type="text"
-                placeholder="{{ 'Your message' | translate }}" formControlName="message" [attr.disabled]="messageSucceed"
+                <textarea class="cutom-background" #messageInput id="message" type="text"
+                placeholder="{{ 'Your message' | translate }}" formControlName="messageField"
                     [class.error]="isFieldValid('message') || messageError" cols="30" rows="20" required></textarea>
                 <small class="text-error" *ngIf="messageError">
                     Please enter a small message.
@@ -32,12 +32,12 @@
             </div>
 
             <label class="privacy-container d-flex">
-                <span translate>I've read the
+                <span (click)="toggleCheckboxPolicy()" translate>I've read the
                     <a translate routerLink="/privacy-policy" class="privacy">privacy policy</a>
                     and agree to the processing of my data as outlined.
                 </span>
                 <img [src]="contactForm.get('privacyPolicy')?.value ? '/assets/img/checked_box.svg' : '/assets/img/unchecked_box.svg'" 
-                (click)="toggleCheckboxPolicy()" class="bg-transparent" [ngClass]="{'d-none': messageSucceed}">
+                 class="bg-transparent" [ngClass]="{'d-none': messageSucceed}">
                 <input #privacyPolicy type="checkbox" formControlName="privacyPolicy" required>
             </label>
             <small class="text-error" *ngIf="checkBoxError">

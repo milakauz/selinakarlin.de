@@ -93,10 +93,11 @@ form {
                 border: 2px solid $red;
             }
 
-            &:focus {
-                border: 2px solid $beige;
+             &:focus {
+                //  border: 2px solid $beige;
                 outline: none;
-            }
+                border-bottom: 2px solid $beige;
+             }
 
             &:disabled {
                 border-bottom: 2px solid rgba(255, 252, 243, 0.2);
@@ -114,14 +115,11 @@ form {
             border: none;
             border-bottom: 2px solid $beige;
             padding: 4%;
-            resize: none;
+            // resize: none;
+            height: 150px;
 
             &:placeholder-shown {
                 height: 20px;
-            }
-
-            &:focus {
-                border: 2px solid beige;
             }
 
             &.error {
@@ -326,7 +324,7 @@ form {
 
 @media only screen and (min-width: 1400px) {
     h1 {
-        left: 320px;
+        left: 380px;
     }
 
     .contact-form {
