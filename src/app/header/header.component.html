@@ -15,9 +15,9 @@
 
     </nav>
 </header>
-<div #linksContainer [class.d-flex]="isActivated" [style]="isActivated ? 'overflow-y: hidden' : ''"
+<div #linksContainer [class.d-flex]="isActivated" 
     class="show-menu-links d-none p-0-25 justify-center flex-column align-center">
-
+    <!-- [style]="isActivated ? 'overflow-y: hidden' : ''" -->
     <div class="link-wrapper pos-relative">
         <a (click)="scrollToSection('aboutMe')" translate>About me</a>
     </div>
@@ -37,13 +37,13 @@
             <div class="links-to-contact bg-transparent">
 
                 <div class="mail bg-transparent">
-                    <a href="mailto:karlinselina@gmail.com" class="bg-transparent">karlinselina@gmail.com</a>
+                    <a href="mailto:hello@selinakarlin.de" class="bg-transparent">hello@selinakarlin.de</a>
                 </div>
                 <div class="socials bg-transparent d-flex">
                     <a class="bg-transparent" href="https://github.com/milakauz">
                         <img class="bg-transparent" src="./assets/img/socials/github-white.svg">
                     </a>
-                    <a class="bg-transparent" href="mailto:karlinselina@gmail.com">
+                    <a class="bg-transparent" href="mailto:hello@selinakarlin.de">
                         <img class="bg-transparent" src="./assets/img/socials/email-white.svg" alt="">
                     </a>
                     <a class="bg-transparent" href="https://www.linkedin.com/in/selinakarlin/">

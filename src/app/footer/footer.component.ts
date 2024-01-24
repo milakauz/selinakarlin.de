@@ -26,7 +26,7 @@ export class FooterComponent {
     {
       name: 'mail',
       imgSource: './assets/img/socials/mail.png', 
-      url: 'karlinselina@gmail.com',
+      url: 'hello@selinakarlin.de',
     },
     {
       name: 'linkedIn',

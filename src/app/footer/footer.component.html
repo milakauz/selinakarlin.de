@@ -6,7 +6,7 @@
 
     <div class="socials-wrapper bg-transparent d-flex">
         <a *ngFor="let item of socialMediaList" class="bg-transparent"
-            [href]="item.name !== 'mail' ? item.url : 'mailto:karlinselina@gmail.com'"
+            [href]="item.name !== 'mail' ? item.url : 'mailto:hello@selinakarlin.de'"
             [attr.target]="item.name !== 'mail' ? '_blank' : null">
             <img src="{{item.imgSource}}" class="bg-transparent">
         </a>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="mail-wrapper bg-transparent">
-        <a class="bg-transparent" href="mailto:karlinselina@gmail.com" target="_blank">karlinselina@gmail.com</a>
+        <a class="bg-transparent" href="mailto:hello@selinakarlin.de" target="_blank">hello@selinakarlin.de</a>
     </div>
     <div class="legal-link bg-transparent">
         <a class="animate-link bg-transparent" routerLink="/legal-notice">Legal notice</a>
