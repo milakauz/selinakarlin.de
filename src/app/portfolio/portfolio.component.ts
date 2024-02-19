@@ -19,7 +19,7 @@ export class PortfolioComponent implements OnInit {
 
   portfolioList = [
     {
-      url: './assets/img/portfolio/join.png',
+      url: './assets/img/portfolio/join_2.png',
       name: 'Join',
       techStack: 'CSS | HTML | JavaScript',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
@@ -29,7 +29,7 @@ export class PortfolioComponent implements OnInit {
     {
       url: './assets/img/portfolio/el_pollo_loco.png',
       name: 'El Pollo Loco',
-      techStack: 'CSS | HTML | JavaScript',
+      techStack: 'CSS | HTML | JavaScript | OOP',
       description: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and bottles to fight the endboss.',
       linkGithub: 'https://github.com/milakauz/elPolloLoco',
       linkLive: 'https://www.elpolloloco.selinakarlin.de/index.html',
