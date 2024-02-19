@@ -5,8 +5,12 @@
         </a>
 
         <div>
-            <a [ngClass]="this.language === 'de' ? 'green' : ''" class="language-links" (click)="translate.use('de'); setGerman()">DE</a> |
-            <a [ngClass]="this.language === 'en' ? 'green' : ''" class="language-links" (click)="translate.use('en'); setEnglish()">EN</a>
+            <a [ngClass]="this.language === 'de' ? 'green' : ''" class="language-links" (click)="translate.use('de'); setGerman()">
+                {{ this.language === 'de' ? 'DEUTSCH' : 'DE' }}
+            </a> |
+            <a [ngClass]="this.language === 'en' ? 'green' : ''" class="language-links" (click)="translate.use('en'); setEnglish()">
+                {{ this.language === 'en' ? 'ENGLISH' : 'EN' }}
+            </a>
         </div>
 
         <div (click)="toggleMenu()" class="hamburger-menu">
