@@ -19,6 +19,14 @@ export class PortfolioComponent implements OnInit {
 
   portfolioList = [
     {
+      url: './assets/img/portfolio/dabubble.png',
+      name: 'DABubble',
+      techStack: 'Angular | TypeScript | Firebase | SCSS | Material Design',
+      description: 'This chat messenger app is inspired by Slack and allows users to communicate with each other through channels or direct messages.',
+      linkGithub: 'https://github.com/milakauz/dabubble',
+      linkLive: 'https://dabubble.selinakarlin.de/'
+    },
+    {
       url: './assets/img/portfolio/join_2.png',
       name: 'Join',
       techStack: 'CSS | HTML | JavaScript',
