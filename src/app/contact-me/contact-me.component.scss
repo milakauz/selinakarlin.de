@@ -25,7 +25,8 @@ h1 {
         }
 
         100% {
-            color: $green;
+            /* color: $green; */
+            color: #c05450;
         }
     }
 }
@@ -157,7 +158,8 @@ form {
 
     a {
         background-color: #000000;
-        color: #00BC8F;
+   /*      color: #00BC8F; */
+   color: #c05450;
     }
 
     span {
@@ -189,7 +191,7 @@ form {
         padding: 8px 16px;
         line-height: 60px;
         border: 4px solid;
-        border-image: linear-gradient(45deg, rgb(0, 188, 143), rgb(237,123,14)) 1;
+        border-image: linear-gradient(45deg, #c05450, rgb(237,123,14)) 1;
         color: $beige;
         letter-spacing: 1px;
         overflow: hidden;
@@ -201,7 +203,7 @@ form {
             content: '';
             width: 20px;
             height: 20px;
-            background-color: #00BC8F;
+            background-color: #c05450;;
             border-radius: 50%;
             opacity: 0;
 
@@ -230,7 +232,7 @@ form {
         }
 
         &.finished {
-            background-color: #00BC8F;
+            background-color: #c05450;
             width: 120px;
             border-radius: 10px;
             color: $beige;

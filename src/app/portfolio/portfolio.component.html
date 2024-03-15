@@ -1,29 +1,53 @@
 <div id="portfolioSection" class="margin-custom portfolio-head">
-    <div class="pf-head-wrapper d-flex flex-column align-center">
-        <h1>Portfolio</h1>
-        <p translate>This page is a sample of my work - please feel free to try them out.</p>
-    </div>
+  <div class="pf-head-wrapper d-flex flex-column align-center">
+    <h1>Portfolio</h1>
+    <p translate>
+      This page is a sample of my work - feel free to try them out. <br> Please contact me if you'd like to know more about a particular project or discuss a possible collaboration.
+      
+    </p>
+  </div>
 </div>
-<div #elementToAnimate *ngFor="let project of portfolioList; let i = index" class="portfolio-container margin-custom"
-    [ngStyle]="{'text-align': i % 2 === 0 ? 'left' : 'right'}" [class.row-reverse]="i % 2 !== 0"> 
-    <div class="project-image">
-        <img [ngClass]="{'right-0' : i % 2 !== 0, 'left-0' : i % 2 === 0}" src="{{ project.url }}" data-aos="colour" data-aos-duration="1000">
-        <!-- <div class="frame bg-transparent"></div> -->
+<div
+  #elementToAnimate
+  *ngFor="let project of portfolioList; let i = index"
+  class="portfolio-container margin-custom"
+  [ngStyle]="{ 'text-align': i % 2 === 0 ? 'left' : 'right' }"
+  [class.row-reverse]="i % 2 !== 0"
+>
+  <div class="project-image">
+    <a href="{{project.linkLive}}" class="link" target=”_blank”
+      ><img class="img-border"
+        [ngClass]="{ 'right-0': i % 2 !== 0, 'left-0': i % 2 === 0 }"
+        src="{{ project.url }}"
+        data-aos="colour"
+        data-aos-duration="2500"
+    /></a>
+  </div>
+  <div
+    class="pf-info"
+    data-aos-duration="1000"
+    [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
+    [ngStyle]="{ 'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse' }"
+  >
+    <div class="pf-text" [class.text-left]="i % 2 !== 0">
+      <h3 class="project-name">{{ project.name }}</h3>
+      <p class="pink">{{ project.techStack }}</p>
+      <p translate class="description">
+        {{ project.description }}
+      </p>
     </div>
-    <div class="pf-info" data-aos-duration="1000" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'"
-        [ngStyle]="{'flex-direction': i % 2 === 0 ? 'row' : 'row-reverse'}">
-        <div class="pf-text" [class.text-left]="i % 2 !== 0">
-            <h3 class="project-name">{{ project.name }}</h3>
-            <p class="green"> {{ project.techStack }} </p>
-            <p translate class="description">
-                {{ project.description }}
-            </p>
-        </div>
-        <div class="portfolio-button d-flex" [ngStyle]="{'align-items': i % 2 === 0 ? 'flex-end' : 'flex-start'}">
-            <button class="bg-transparent" (click)="redirectTo(project.linkGithub)">Github</button>
-            <button class="bg-transparent" (click)="redirectTo(project.linkLive)">Live Test</button>
-        </div>
+    <div
+      class="portfolio-button d-flex"
+      [ngStyle]="{ 'align-items': i % 2 === 0 ? 'flex-end' : 'flex-start' }"
+    >
+      <button class="bg-transparent" (click)="redirectTo(project.linkGithub)">
+        Github
+      </button>
+      <button class="bg-transparent" (click)="redirectTo(project.linkLive)">
+        Live Test
+      </button>
     </div>
+  </div>
 </div>
 
 <!-- [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'" data-aos-duration="1000" -->

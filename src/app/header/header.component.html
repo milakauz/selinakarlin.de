@@ -4,11 +4,11 @@
             <img class="logo" src="./assets/img/logo/sk_dark_black_logo_transparentBG.svg">
         </a>
 
-        <div>
-            <a [ngClass]="this.language === 'de' ? 'green' : ''" class="language-links" (click)="translate.use('de'); setGerman()">
+        <div class="language-selection">
+            <a [ngClass]="this.language === 'de' ? 'pink' : ''" class="language-links" (click)="translate.use('de'); setGerman()">
                 {{ this.language === 'de' ? 'DEUTSCH' : 'DE' }}
             </a> |
-            <a [ngClass]="this.language === 'en' ? 'green' : ''" class="language-links" (click)="translate.use('en'); setEnglish()">
+            <a [ngClass]="this.language === 'en' ? 'pink' : ''" class="language-links" (click)="translate.use('en'); setEnglish()">
                 {{ this.language === 'en' ? 'ENGLISH' : 'EN' }}
             </a>
         </div>

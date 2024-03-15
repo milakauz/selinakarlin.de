@@ -1,12 +1,12 @@
 .atf-content {
     font-family: Overpass;
-    justify-content: space-around;
-    height: 100vh;
-    margin-top: 64px;
+    height: calc(100vh - 80px);
+    margin-bottom: 2rem;;
+    position: relative;
+    overflow: hidden;
 
     h1 {
         font-stretch: expanded;
-        // text-align: center;
         font-weight: 800;
 
         &:hover {
@@ -22,11 +22,16 @@
 
     .headline-content {
         flex-direction: column;
-
+        margin-top: 2rem;
         .subheader {
-            gap: 16px;
+            font-size: 2rem;
+            gap: 1.6rem;
         }
     }
+}
+
+.arrow-scroll-animation{
+    overflow: scroll;
 }
 
 
@@ -46,17 +51,27 @@
 .mail {
     color: black;
     transform: rotate(-90deg);
-    margin-top: 18px;
+        position: absolute;
+    left: -6rem;
+    bottom: 6rem;
+    font-size: 1.5rem;
 
     &:hover {
-        color: #00BC8F;
+      /*   color: #00BC8F; */
+      color: #c05450;
     }
 }
 
 .scroll-down {
+    position: absolute;
     width: 50px;
     right: 0;
     bottom: 0;
+    font-size: 1.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     .imperative {
         overflow-y: hidden;
@@ -83,10 +98,19 @@
     }
 }
 
+@media only screen and (min-height: 700px) {
+    .headline-content{
+        margin-top: 10rem !important;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     button {
         display: none;
+    }
+
+    .scroll-down{
+        width: 7rem;
     }
 }
 

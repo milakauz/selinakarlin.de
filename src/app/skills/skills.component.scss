@@ -1,96 +1,100 @@
 .headline-skills {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: -1rem;
 
-    h1 {
-        margin-top: 42px;
-    }
 }
 
 .skills-container {
-    border: 4px solid #000000;
-    margin-top: 4rem;
-    position: relative;
+  border: 4px solid #000000;
+  margin-top: 4rem;
+  position: relative;
 }
 
 .skills-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 54px 8px;
-    gap: 16px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 54px 8px;
+  gap: 16px;
+  justify-content: center;
 
-    div {
-        flex-direction: column;
-    }
+  div {
+    flex-direction: column;
+  }
 
-    span {
-        font-family: Overpass;
-        font-size: 0.8em;
-        text-align: center;
-        font-weight: bold;
-        margin-top: 0.5em;
-    }
+  span {
+    font-family: Overpass;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0.5em;
+  }
 }
 
 #arrowImg {
-    height: 250px;
-    width: 250px;
+  height: 250px;
+  width: 250px;
+}
 
+.skill-item {
+  width: 10rem;
 }
 
 @media only screen and (min-width: 768px) {
-    .skills-wrap {
-        padding: 50px 25px;
-        gap: 80px;
-    }
+  .skills-wrap {
+    padding: 50px 25px;
+    gap: 80px;
+    height: unset;
+  }
 
-    .skill-item {
-        &:hover {
-            cursor: pointer;
-            color: #07bc90;
+  .skill-item {
+    &:hover {
+      cursor: pointer;
+      color: #c05450;
 
-            img {
-                animation: swipe 500ms linear forwards;
-            }
+      img {
+        animation: swipe 500ms linear forwards;
+      }
 
-            @keyframes swipe {
-                0% {
-                    transform: translateX(0) scale(1);
-                }
-
-                25% {
-                    transform: translateX(100%) scale(1);
-                }
-
-                50% {
-                    transform: translateX(0) scale(0.7);
-                }
-
-                75% {
-                    transform: translateX(-50%) scale(0.9);
-                }
-
-                100% {
-                    transform: translateX(0) scale(1);
-                }
-            }
+      @keyframes swipe {
+        0% {
+          transform: translateX(0) scale(1);
         }
+
+        25% {
+          transform: translateX(100%) scale(1);
+        }
+
+        50% {
+          transform: translateX(0) scale(0.7);
+        }
+
+        75% {
+          transform: translateX(-50%) scale(0.9);
+        }
+
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
     }
+  }
 }
 
 @media only screen and (min-width: 1400px) {
+  .headline-skills {
+    top: -2rem;
+  }
+  .skills-wrap {
+    grid-row-gap: 80px;
+    grid-column-gap: 125px;
+    padding: 88px 25px;
 
-    .skills-wrap {
-        grid-row-gap: 80px;
-        grid-column-gap: 125px;
-        padding: 88px 25px;
-
-        img {
-            height: 110px;
-        }
+    img {
+      height: 110px;
     }
+  }
 }
