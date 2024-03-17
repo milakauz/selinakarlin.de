@@ -46,14 +46,14 @@ footer {
             bottom: -3px;
             width: 30%;
             height: 5px;
-            background-color: #00bc8f;
+            background-color: #c05450;
             transform: translateX(-100%);
             transition: transform 0.8s ease-in-out;
 
         }
 
         &:hover::after {
-            background-color: #00bc8f;
+            background-color: #c05450;
             right: 50%;
         }
     }
@@ -136,7 +136,7 @@ footer {
                 }
 
                 &:hover::after {
-                    background-color: #00bc8f;
+                    background-color: #c05450;
                     transform: translateX(300%);
                 }
             }
