@@ -36,7 +36,7 @@ p {
   display: none;
 }
 
-@media only screen and (max-height: 1000px){
+@media only screen and (min-width: 900px) and (min-height: 760px){
   .about-me{
     height: calc(100vh + 20rem);
   }

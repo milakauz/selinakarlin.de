@@ -314,7 +314,7 @@ form {
 
 @media only screen and (min-width: 1400px) {
   h1 {
-    left: 380px;
+    left: 300px;
   }
 
   .contact-form {
@@ -323,6 +323,9 @@ form {
 }
 
 @media only screen and (min-width: 1750px) {
+  h1 {
+    left: 380px;
+  }
   .contact-form {
     padding-top: 110px;
   }
